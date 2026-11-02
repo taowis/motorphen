@@ -1,0 +1,26 @@
+# personal / tooling
+CLAUDE.md
+.claude/
+private_notes/
+
+# literature PDFs (publisher copyright)
+literature/
+
+# data: raw downloads and anything identifiable stay out of the repo
+data/raw/
+data/interim/
+*.mp4
+*.mov
+*.avi
+
+# model outputs
+checkpoints/
+*.pt
+*.ckpt
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.DS_Store
