@@ -41,6 +41,9 @@ and equation numbers refer to arXiv v1; check against the journal version.
 | PeakStat | 95th percentile over frames | "peak statistic" not defined; plain max is sensitive to single-frame spikes |
 | Noise floor | per joint, 99th percentile of trial scores in held-out healthy validation subjects | "calibrated noise floor" not defined |
 | Gait cycles | from Plug-in Gait foot strike events, not heel-height peaks | events are in the C3D files |
+| Pass 2 output | reconstructed last frame of each window for all joints, not only the flagged ones; first 6 frames keep the input | the paper says joints outside the top K are "implicitly constrained by the normative prior", which implies the full reconstruction is used |
+| Normative mean mu(t) | all training trials (the dataset has self-selected speed only) | paper used normal-speed trials |
+| Selection rule reported | both the paper's rule (above noise floor, at most K) and always top K | the second is a stricter specificity check |
 | Split | by subject: 110 train, 8 validation (noise floor, monitoring), 17 test, from the 135 full-body subjects; seed 20261103 | paper used 150 / 10 |
 
 Any change to a choice above is recorded here with the date.

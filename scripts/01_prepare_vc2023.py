@@ -31,7 +31,8 @@ UPPER = [k for k in range(len(JOINTS)) if k not in LOWER]
 
 
 def process(x, rate):
-    """Yield (angles_30hz, has_upper) for each usable segment of one trial."""
+    """Yield (angles_30hz, has_upper, (s, e)) for each usable segment of one trial;
+    s, e are the segment bounds in source frames."""
     x = fill_gaps(x, int(MAX_GAP_S * rate))
     for s, e in contiguous_segments(x[:, LOWER], int(MIN_SEG_S * rate)):
         seg = x[s:e]
@@ -41,11 +42,11 @@ def process(x, rate):
         has_upper = bool(np.isfinite(seg[:, UPPER]).all())
         if has_upper:
             out[:, UPPER] = resample(seg[:, UPPER], rate, TARGET_HZ)
-        yield out.astype(np.float32), has_upper
+        yield out.astype(np.float32), has_upper, (s, e)
 
 
 def main():
-    angles, rows, inventory = [], [], []
+    angles, rows, inventory, events = [], [], [], []
     offset = 0
     for group, pattern in GROUPS.items():
         for sdir in sorted(d for d in glob.glob(pattern) if os.path.isdir(d)):
@@ -59,7 +60,15 @@ def main():
                     skipped.append(os.path.basename(f))
                     continue
                 n_walk += 1
-                for y, has_upper in process(tr.angles, tr.rate):
+                for y, has_upper, (s, e) in process(tr.angles, tr.rate):
+                    seg_id = len(rows)
+                    for key, frames in tr.events.items():
+                        side, kind = key.split(" ", 1)
+                        for fr in frames:
+                            if s <= fr < e:
+                                k = int(round((fr - s) * TARGET_HZ / tr.rate))
+                                if k < len(y):
+                                    events.append(dict(segment=seg_id, side=side, event=kind, frame=k))
                     angles.append(y)
                     rows.append(dict(subject=subject, group=group, trial=os.path.basename(f),
                                      start=offset, length=len(y), has_upper=has_upper,
@@ -77,6 +86,7 @@ def main():
     seg = pd.DataFrame(rows)
     np.savez_compressed("data/processed/vc2023.npz", angles=np.concatenate(angles),
                         joints=np.array(JOINTS), **{c: seg[c].to_numpy() for c in seg.columns})
+    pd.DataFrame(events).to_csv("data/processed/vc2023_events.tsv", sep="\t", index=False)
     inv = pd.DataFrame(inventory)
     inv["full_body"] = inv.frames_with_upper_body > 0
     inv.to_csv("results/e1/inventory_vc2023.tsv", sep="\t", index=False)

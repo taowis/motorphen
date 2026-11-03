@@ -93,7 +93,7 @@ def main():
     run = dict(tag=tag, seed=args.seed, epochs=args.epochs, batch=args.batch,
                micro_batch=args.micro_batch, max_mem_gb=args.max_mem_gb, device=str(device),
                n_params=n_params, train_windows=len(train_idx), val_windows=len(val_idx),
-               split_seed=SPLIT_SEED, data=DATA, data_md5=md5(DATA), torch=torch.__version__,
+               split_seed=SPLIT_SEED, data=DATA, data_md5=md5(DATA), torch=str(torch.__version__),
                python=platform.python_version(),
                git_commit=subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
                                          text=True).stdout.strip(),
