@@ -25,3 +25,8 @@ Benchmark, 2026-11-03 (20 batches of 256, E1 model): about 0.13 s per batch,
 about 15 s per epoch, so about one hour for 250 epochs; peak GPU memory 9.6 GB
 at batch 256 and 5.0 GB at micro-batch 128. Run with a borrowed PyTorch
 2.11.0+cu128 install before the project environment existed.
+
+E3c speed test, 2026-11-03 (20 batches, micro-batch 64, effective batch 256,
+results/e3/e3c_bench/): window 15, 23,384 training windows, peak GPU memory
+5.2 GB, about 1.7 h for 250 epochs; window 31, 18,632 windows, 10.6 GB,
+about 3.5 h. Longer windows drop walking segments shorter than the window.
