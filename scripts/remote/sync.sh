@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copy code and processed data to a GPU workstation and record the git commit.
+# Copy code and processed data to a GPU server and record the git commit.
 # Usage: REMOTE=user@host REMOTE_DIR=~/Projects/motorphen-dev scripts/remote/sync.sh
 set -euo pipefail
 cd "$(dirname "$0")/../.."

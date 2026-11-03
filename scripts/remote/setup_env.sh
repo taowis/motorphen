@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Create the project's own Python environment on a CUDA workstation (run there,
+# Create the project's own Python environment on a CUDA server (run there,
 # from the project directory). Uses uv; PyTorch from the CUDA 12.8 wheel index.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
