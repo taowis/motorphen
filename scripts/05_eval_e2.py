@@ -29,7 +29,6 @@ from motorphen.model import GaitMAE
 DATA = "data/processed/vc2023.npz"
 EVENTS = "data/processed/vc2023_events.tsv"
 META = "data/processed/subject_meta.tsv"
-OUT = "results/e2"
 SIDE_IDX = {"left": [JOINTS.index("l_hip"), JOINTS.index("l_knee")],
             "right": [JOINTS.index("r_hip"), JOINTS.index("r_knee")]}
 
@@ -45,7 +44,7 @@ def device():
 def load_model(tag, dev):
     from torch.torch_version import TorchVersion
     with torch.serialization.safe_globals([TorchVersion]):
-        ck = torch.load(f"checkpoints/e1_{tag}.pt", map_location="cpu", weights_only=True)
+        ck = torch.load(f"checkpoints/{tag}.pt", map_location="cpu", weights_only=True)
     m = GaitMAE().to(dev).eval()
     m.load_state_dict(ck["model"])
     return m
@@ -73,7 +72,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tags", nargs="+", default=["seed1", "seed2"])
     ap.add_argument("--max-mem-gb", type=float, default=4.0)
+    ap.add_argument("--ckpt-prefix", default="e1", help="checkpoints/<prefix>_<tag>.pt")
+    ap.add_argument("--ref-dir", default="results/e1", help="split.tsv, rom_deg.tsv, noise_floor_<tag>.tsv")
+    ap.add_argument("--out", default="results/e2")
     args = ap.parse_args()
+    OUT = args.out
     memcap.start(args.max_mem_gb)
     os.makedirs(OUT, exist_ok=True)
     dev = device()
@@ -81,7 +84,7 @@ def main():
     z = np.load(DATA, allow_pickle=True)
     seg = pd.DataFrame({k: z[k] for k in ["subject", "group", "trial", "start", "length", "has_upper"]})
     seg["segment"] = np.arange(len(seg))
-    split = pd.read_csv("results/e1/split.tsv", sep="\t").set_index("subject")["split"]
+    split = pd.read_csv(f"{args.ref_dir}/split.tsv", sep="\t").set_index("subject")["split"]
     seg["split"] = seg.subject.map(split)
     meta = pd.read_csv(META, sep="\t").set_index("subject")
     ev = pd.read_csv(EVENTS, sep="\t")
@@ -100,7 +103,7 @@ def main():
     ref = normative_reference({s: [(trial(r), strikes[s].get(r.segment, [])) for r in train.itertuples()]
                                for s in ("left", "right")})
     pca = PCABaseline().fit(np.concatenate([trial(r) for r in train.itertuples()]))
-    rom = torch.tensor(np.deg2rad(pd.read_csv("results/e1/rom_deg.tsv", sep="\t", index_col=0)
+    rom = torch.tensor(np.deg2rad(pd.read_csv(f"{args.ref_dir}/rom_deg.tsv", sep="\t", index_col=0)
                                   .loc[JOINTS].to_numpy()), dtype=torch.float32, device=dev)
 
     rows = []
@@ -123,8 +126,8 @@ def main():
 
     flag_rows, corr_rows = [], []
     for tag in args.tags:
-        model = load_model(tag, dev)
-        fl = pd.read_csv(f"results/e1/noise_floor_{tag}.tsv", sep="\t").set_index("joint").noise_floor
+        model = load_model(f"{args.ckpt_prefix}_{tag}", dev)
+        fl = pd.read_csv(f"{args.ref_dir}/noise_floor_{tag}.tsv", sep="\t").set_index("joint").noise_floor
         floor = {JOINTS.index(j): v for j, v in fl.items()}
         side_scores = {}
         for subj, g in stroke.groupby("subject"):

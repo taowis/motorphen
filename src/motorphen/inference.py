@@ -14,12 +14,13 @@ LONG_AXIS = torch.tensor([0.0, 0.0, 1.0])         # child segment long axis in t
 
 
 @torch.no_grad()
-def predict_last(model, seq, hide=(), T=7, batch=1024):
+def predict_last(model, seq, hide=(), T=None, batch=1024):
     """Last-frame predictions for every window of a trial.
 
     seq: (N, J, 3) tensor of angles in radians on the model's device.
     hide: joint indices hidden from the encoder at every frame.
     Returns (N - T + 1, J, 3) predicted angles."""
+    T = model.T if T is None else T
     N, J, _ = seq.shape
     W = N - T + 1
     out = []
@@ -47,6 +48,28 @@ def badness(base_j, tile_j, rom_j):
     return e_geom * (0.5 + 0.5 * c_rom)
 
 
+def frame_badness(model, seq, rom, joints=None):
+    """Per-frame badness B_j(t) for each joint in `joints` (default SCORED_IDX).
+    Returns dict joint index -> (W,) tensor on CPU."""
+    joints = SCORED_IDX if joints is None else joints
+    base = predict_last(model, seq)
+    out = {}
+    for j in joints:
+        tile = predict_last(model, seq, hide=[j])
+        out[j] = badness(base[:, j], tile[:, j], rom[j]).float().cpu()
+    return out
+
+
+def peak(b, stat="q95"):
+    if stat == "q95":
+        return float(torch.quantile(b, 0.95))
+    if stat == "max":
+        return float(b.max())
+    if stat == "mean":
+        return float(b.mean())
+    raise ValueError(stat)
+
+
 def pass1(model, seq, rom, peak_q=0.95):
     """Trial-level scores for the scored joints. rom: (J, 3) tensor, radians.
 
@@ -68,9 +91,10 @@ def select_joints(scores, floor=None, k=2):
     return ranked[:k]
 
 
-def reconstruct(model, seq, flagged, T=7):
+def reconstruct(model, seq, flagged, T=None):
     """Pass 2: hide the flagged joints, keep the reconstructed last frame of each
     window for all joints. The first T - 1 frames keep the input."""
+    T = model.T if T is None else T
     out = seq.clone()
     if len(flagged) == 0:
         return out

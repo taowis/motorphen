@@ -27,7 +27,6 @@ from motorphen.model import GaitMAE
 
 DATA = "data/processed/vc2023.npz"
 EVENTS = "data/processed/vc2023_events.tsv"
-OUT = "results/e1"
 
 
 def device():
@@ -44,14 +43,20 @@ def main():
     ap.add_argument("--k", type=int, default=2)
     ap.add_argument("--floor-q", type=float, default=0.99)
     ap.add_argument("--max-mem-gb", type=float, default=4.0)
+    ap.add_argument("--out", default="results/e1")
+    ap.add_argument("--split-file", default=None, help="default: <out>/split.tsv")
+    ap.add_argument("--ckpt", default=None, help="default: checkpoints/e1_<tag>.pt")
+    ap.add_argument("--test-splits", nargs="+", default=["test"])
     args = ap.parse_args()
+    OUT = args.out
+    os.makedirs(OUT, exist_ok=True)
     memcap.start(args.max_mem_gb)
     dev = device()
 
     z = np.load(DATA, allow_pickle=True)
     seg = pd.DataFrame({k: z[k] for k in ["subject", "group", "trial", "start", "length", "has_upper"]})
     seg["segment"] = np.arange(len(seg))
-    split = pd.read_csv(f"{OUT}/split.tsv", sep="\t").set_index("subject")["split"]
+    split = pd.read_csv(args.split_file or f"{OUT}/split.tsv", sep="\t").set_index("subject")["split"]
     seg["split"] = seg.subject.map(split)
     ev = pd.read_csv(EVENTS, sep="\t")
     rstrikes = (ev[(ev.side == "Right") & (ev.event == "Foot Strike")]
@@ -81,7 +86,7 @@ def main():
     # only that type and keep weights_only loading
     from torch.torch_version import TorchVersion
     with torch.serialization.safe_globals([TorchVersion]):
-        ck = torch.load(f"checkpoints/e1_{args.tag}.pt", map_location="cpu", weights_only=True)
+        ck = torch.load(args.ckpt or f"checkpoints/e1_{args.tag}.pt", map_location="cpu", weights_only=True)
     model = GaitMAE().to(dev).eval()
     model.load_state_dict(ck["model"])
     rom_d = rom.to(dev)
@@ -101,11 +106,11 @@ def main():
 
     # held-out healthy subjects
     flags_rows, per_subject = [], {}
-    for r in healthy[healthy.split == "test"].itertuples():
+    for r in healthy[healthy.split.isin(args.test_splits)].itertuples():
         x = seq_of(r)
         scores, _ = pass1(model, x, rom_d)
         sel = {"floor": select_joints(scores, floor, args.k), "topk": select_joints(scores, None, args.k)}
-        flags_rows.append(dict(subject=r.subject, segment=r.segment,
+        flags_rows.append(dict(subject=r.subject, segment=r.segment, split=r.split,
                                **{f"score_{JOINTS[j]}": scores[j] for j in SCORED_IDX},
                                flagged_floor=";".join(JOINTS[j] for j in sel["floor"]),
                                flagged_topk=";".join(JOINTS[j] for j in sel["topk"])))
@@ -113,15 +118,15 @@ def main():
         for rule, joints in sel.items():
             versions[rule] = np.rad2deg(reconstruct(model, x, joints).cpu().numpy())
         st = rstrikes.get(r.segment, [])
-        d = per_subject.setdefault(r.subject, {})
+        d = per_subject.setdefault((r.subject, r.split), {})
         for v, a in versions.items():
             for name, c in reported_cycles(a, st).items():
                 d.setdefault((v, name), []).append(c)
 
     rows = []
-    for subj, d in per_subject.items():
+    for (subj, sp), d in per_subject.items():
         for name, _, _ in REPORTED:
-            row = dict(subject=subj, angle=name)
+            row = dict(subject=subj, split=sp, angle=name)
             for v in ("original", "floor", "topk"):
                 c = np.concatenate(d[(v, name)])
                 row[f"n_cycles"] = len(c)
@@ -133,10 +138,13 @@ def main():
 
     summary = {"tag": args.tag, "k": args.k, "floor_quantile": args.floor_q,
                "n_test_subjects": int(res.subject.nunique()), "results": {}}
-    for rule in ("floor", "topk"):
-        for name, _, _ in REPORTED:
-            sub = res[(res.angle == name)].dropna()
-            summary["results"][f"{rule}/{name}"] = bootstrap_equivalence(sub[f"rmse_{rule}"] - sub.rmse_original)
+    for sp in args.test_splits:
+        prefix = "" if len(args.test_splits) == 1 else f"{sp}/"
+        for rule in ("floor", "topk"):
+            for name, _, _ in REPORTED:
+                sub = res[(res.angle == name) & (res.split == sp)].dropna()
+                summary["results"][f"{prefix}{rule}/{name}"] = bootstrap_equivalence(
+                    sub[f"rmse_{rule}"] - sub.rmse_original)
     with open(f"{OUT}/specificity_summary_{args.tag}.json", "w") as f:
         json.dump(summary, f, indent=1)
     for k, v in summary["results"].items():
@@ -145,5 +153,4 @@ def main():
 
 
 if __name__ == "__main__":
-    os.makedirs(OUT, exist_ok=True)
     main()
