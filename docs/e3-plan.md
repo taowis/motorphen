@@ -53,3 +53,22 @@ outcomes as E1 and E2.
 
 As before, a difference between variants is only called a difference when it
 is larger than the seed-to-seed difference of the reference setting.
+
+## E3d: learning curve (added 2026-11-03, before any E3d result)
+
+Question: is the amount of normative training data the bottleneck?
+
+- Training subjects: nested random subsets of the E1 training set, 25 and 50
+  subjects (25 inside 50 inside the full 110), seed 20261105. Validation (8)
+  and test (17 healthy) subjects are the E1 ones, so results are comparable
+  with E1; the 110-subject point is the E1 runs.
+- Equal number of optimiser steps for every size: epochs = 250 x (windows in
+  the full 110-subject set) / (windows in the subset), rounded; the masking
+  curriculum is stretched in proportion (structured masks complete at the same
+  fraction of training as in the paper's 60 of 250 epochs).
+- Two seeds per size, E1 settings otherwise, on the GPU server.
+- Outcomes per size: E1 equivalence and healthy flag rate; E2 side AUROC and
+  accuracy in the 50 stroke survivors.
+- Reading fixed in advance: if E2 AUROC does not rise from 25 to 50 to 110
+  subjects beyond the seed-to-seed difference, more normative data of this
+  kind is unlikely to fix localisation.

@@ -135,6 +135,9 @@ def main():
     t0 = time.time()
     for epoch in range(args.epochs):
         model.train()
+        # curriculum position on the paper's 250-epoch scale, so longer runs
+        # (equal-steps learning curve) stretch it in proportion
+        cur_epoch = int(epoch * 250 / args.epochs)
         perm = train_idx[torch.randperm(len(train_idx), generator=g).to(device)]
         totals, n = {}, 0
         for b in range(0, len(perm), args.batch):
@@ -145,8 +148,8 @@ def main():
             for c in range(0, len(idx), args.micro_batch):
                 sub = idx[c:c + args.micro_batch]
                 a = gather_windows(all_angles, sub, T)
-                m1 = sample_masks(len(sub), J, T, epoch, gen=g).to(device)
-                m2 = sample_masks(len(sub), J, T, epoch, gen=g).to(device)
+                m1 = sample_masks(len(sub), J, T, cur_epoch, gen=g).to(device)
+                m2 = sample_masks(len(sub), J, T, cur_epoch, gen=g).to(device)
                 loss, parts = compute_losses(model, a, m1, m2)
                 (loss * len(sub) / len(idx)).backward()
                 for k, v in parts.items():
