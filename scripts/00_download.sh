@@ -26,6 +26,9 @@ fetch https://ndownloader.figshare.com/files/42450060 $VC/138_HealthyPiG.zip 852
 fetch https://ndownloader.figshare.com/files/42450069 $VC/50_StrokePiG.zip 71925450f3c058b145791de7951c8dc9
 fetch https://ndownloader.figshare.com/files/42450090 $VC/NrStrides.xlsx d66c33d1b460dfd7dec38767453b484e
 fetch https://ndownloader.figshare.com/files/42450093 $VC/MATdatafiles_description_v1.3_LST.xlsx 91e19f0c0bbac2cabab087bf17cbbc65
+# Post-processed Excel files: needed for age, sex, lesion side and clinical scores
+fetch https://ndownloader.figshare.com/files/42450072 $VC/MAT_normalizedData_AbleBodiedAdults_v06-03-23.xlsx 7d6585bb1bfd61f53840aa3a0eb288de
+fetch https://ndownloader.figshare.com/files/42450084 $VC/MAT_normalizedData_PostStrokeAdults_v27-02-23.xlsx d79ec047d50f5a957d164a25bffabf32
 
 # Shida et al. 2023, Front Neurosci 17:992585. Figshare 10.6084/m9.figshare.14896881.v4
 SH=data/raw/shida2023

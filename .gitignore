@@ -24,3 +24,7 @@ __pycache__/
 .venv/
 .ipynb_checkpoints/
 .DS_Store
+
+# derived data, rebuilt by scripts/01_*
+data/processed/
+*.egg-info/

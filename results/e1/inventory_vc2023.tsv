@@ -1,0 +1,189 @@
+subject	group	c3d_files	walking_trials	segments	frames_30hz	frames_with_upper_body	skipped	full_body
+SUBJ01	healthy	4	3	3	313	313	SUBJ1 (0).c3d	True
+SUBJ02	healthy	4	3	3	393	393	SUBJ2 (0).c3d	True
+SUBJ03	healthy	4	3	3	299	299	SUBJ3 (0).c3d	True
+SUBJ04	healthy	4	3	3	312	312	SUBJ4 (0).c3d	True
+SUBJ05	healthy	4	3	3	490	490	SUBJ5 (0).c3d	True
+SUBJ06	healthy	4	3	3	320	106	SUBJ6 (0).c3d	True
+SUBJ07	healthy	4	3	3	247	247	SUBJ7 (0).c3d	True
+SUBJ08	healthy	4	3	3	341	227	SUBJ8 (0).c3d	True
+SUBJ09	healthy	4	3	3	371	253	SUBJ9 (0).c3d	True
+SUBJ10	healthy	4	3	3	313	313	SUBJ10 (0).c3d	True
+SUBJ100	healthy	4	3	3	242	242	SUBJ100 (0).c3d	True
+SUBJ101	healthy	5	3	3	251	251	SUBJ101 (0).c3d;SUBJ101.c3d	True
+SUBJ102	healthy	4	3	3	260	260	SUBJ102 (0).c3d	True
+SUBJ103	healthy	4	3	3	312	312	SUBJ103 (0).c3d	True
+SUBJ104	healthy	4	3	3	231	231	SUBJ104 (0).c3d	True
+SUBJ105	healthy	4	3	3	377	251	SUBJ105 (0).c3d	True
+SUBJ106	healthy	4	3	3	301	301	SUBJ106 (0).c3d	True
+SUBJ107	healthy	5	4	4	377	377	SUBJ107 (0).c3d	True
+SUBJ108	healthy	4	3	3	226	226	SUBJ108 (0).c3d	True
+SUBJ109	healthy	4	3	3	277	277	SUBJ109 (0).c3d	True
+SUBJ11	healthy	4	3	3	407	407	SUBJ11 (0).c3d	True
+SUBJ110	healthy	4	3	3	278	278	SUBJ110 (0).c3d	True
+SUBJ111	healthy	4	3	3	241	241	SUBJ111 (0).c3d	True
+SUBJ112	healthy	4	3	3	265	265	SUBJ112 (0).c3d	True
+SUBJ113	healthy	4	3	3	253	253	SUBJ113 (0).c3d	True
+SUBJ114	healthy	4	3	3	255	255	SUBJ114 (0).c3d	True
+SUBJ115	healthy	4	3	3	303	303	SUBJ115 (0).c3d	True
+SUBJ116	healthy	4	3	3	353	0	SUBJ116 (0).c3d	False
+SUBJ117	healthy	4	3	3	254	175	SUBJ117 (0).c3d	True
+SUBJ118	healthy	4	3	3	235	160	SUBJ118 (0).c3d	True
+SUBJ119	healthy	4	3	3	190	119	SUBJ119 (0).c3d	True
+SUBJ12	healthy	4	3	3	278	188	SUBJ12 (0).c3d	True
+SUBJ120	healthy	4	3	3	188	188	SUBJ120 (0).c3d	True
+SUBJ121	healthy	5	4	4	307	229	SUBJ121 (0).c3d	True
+SUBJ122	healthy	4	3	3	155	102	SUBJ122 (0).c3d	True
+SUBJ123	healthy	4	3	3	253	79	SUBJ123 (0).c3d	True
+SUBJ124	healthy	6	5	5	363	119	SUBJ124 (0).c3d	True
+SUBJ125	healthy	5	4	4	260	62	SUBJ125 (0).c3d	True
+SUBJ126	healthy	5	4	4	240	0	SUBJ126 (0).c3d	False
+SUBJ127	healthy	5	4	4	276	276	SUBJ127 (0).c3d	True
+SUBJ128	healthy	4	3	3	165	58	SUBJ128 (0).c3d	True
+SUBJ129	healthy	5	4	4	309	84	SUBJ129 (0).c3d	True
+SUBJ13	healthy	4	3	3	407	407	SUBJ13 (0).c3d	True
+SUBJ130	healthy	7	6	6	511	0	SUBJ130 (0).c3d	False
+SUBJ131	healthy	4	3	3	199	132	SUBJ131 (0).c3d	True
+SUBJ132	healthy	5	4	4	200	105	SUBJ132 (0).c3d	True
+SUBJ133	healthy	5	4	4	306	70	SUBJ133 (0).c3d	True
+SUBJ134	healthy	5	4	4	280	280	SUBJ134 (0).c3d	True
+SUBJ135	healthy	7	6	6	468	196	SUBJ135 (0).c3d	True
+SUBJ136	healthy	5	4	4	213	213	SUBJ136 (0).c3d	True
+SUBJ137	healthy	5	4	4	284	126	SUBJ137 (0).c3d	True
+SUBJ138	healthy	4	3	3	276	69	SUBJ138 (0).c3d	True
+SUBJ14	healthy	4	3	3	268	268	SUBJ14 (0).c3d	True
+SUBJ15	healthy	4	3	3	323	219	SUBJ15 (0).c3d	True
+SUBJ16	healthy	4	3	3	268	116	SUBJ16 (0).c3d	True
+SUBJ17	healthy	4	3	3	338	338	SUBJ17 (0).c3d	True
+SUBJ18	healthy	4	3	3	361	361	SUBJ18 (0).c3d	True
+SUBJ19	healthy	4	3	3	320	320	SUBJ19 (0).c3d	True
+SUBJ20	healthy	4	3	3	310	310	SUBJ20 (0).c3d	True
+SUBJ21	healthy	4	3	3	382	382	SUBJ21 (0).c3d	True
+SUBJ22	healthy	4	3	3	381	381	SUBJ22 (0).c3d	True
+SUBJ23	healthy	4	3	3	294	294	SUBJ23 (0).c3d	True
+SUBJ24	healthy	4	3	3	340	101	SUBJ24 (0).c3d	True
+SUBJ25	healthy	4	3	3	282	282	SUBJ25 (0).c3d	True
+SUBJ26	healthy	4	3	3	333	217	SUBJ26 (0).c3d	True
+SUBJ27	healthy	4	3	3	399	399	SUBJ27 (0).c3d	True
+SUBJ28	healthy	4	3	3	373	373	SUBJ28 (0).c3d	True
+SUBJ29	healthy	4	3	3	228	228	SUBJ29 (0).c3d	True
+SUBJ30	healthy	4	3	3	239	239	SUBJ30 (0).c3d	True
+SUBJ31	healthy	4	3	3	238	238	SUBJ31 (0).c3d	True
+SUBJ32	healthy	5	4	4	429	429	SUBJ32 (0).c3d	True
+SUBJ33	healthy	5	4	4	374	189	SUBJ33 (0).c3d	True
+SUBJ34	healthy	4	3	3	308	308	SUBJ34 (0).c3d	True
+SUBJ35	healthy	4	3	3	250	250	SUBJ35 (0).c3d	True
+SUBJ36	healthy	4	3	3	338	218	SUBJ36 (0).c3d	True
+SUBJ37	healthy	4	3	3	235	235	SUBJ37 (0).c3d	True
+SUBJ38	healthy	4	3	3	243	243	SUBJ38 (0).c3d	True
+SUBJ39	healthy	4	3	3	354	354	SUBJ39 (0).c3d	True
+SUBJ40	healthy	5	4	4	324	324	SUBJ40 (0).c3d	True
+SUBJ41	healthy	4	3	3	230	230	SUBJ41 (0).c3d	True
+SUBJ42	healthy	4	3	3	310	310	SUBJ42 (0).c3d	True
+SUBJ43	healthy	4	3	3	203	134	SUBJ43 (0).c3d	True
+SUBJ44	healthy	6	5	5	451	269	SUBJ44 (0).c3d	True
+SUBJ45	healthy	4	3	3	227	227	SUBJ45 (0).c3d	True
+SUBJ46	healthy	4	3	3	202	125	SUBJ46 (0).c3d	True
+SUBJ47	healthy	4	3	3	290	290	SUBJ47 (0).c3d	True
+SUBJ48	healthy	4	3	3	232	232	SUBJ48 (0).c3d	True
+SUBJ49	healthy	4	3	3	283	283	SUBJ49 (0).c3d	True
+SUBJ50	healthy	4	3	3	383	383	SUBJ50 (0).c3d	True
+SUBJ51	healthy	4	3	3	221	221	SUBJ51 (0).c3d	True
+SUBJ52	healthy	4	3	3	297	297	SUBJ52 (0).c3d	True
+SUBJ53	healthy	5	4	4	277	277	SUBJ53 (0).c3d	True
+SUBJ54	healthy	4	3	3	189	112	SUBJ54 (0).c3d	True
+SUBJ55	healthy	4	3	3	278	278	SUBJ55 (0).c3d	True
+SUBJ56	healthy	5	4	4	359	254	SUBJ56 (0).c3d	True
+SUBJ57	healthy	4	3	3	254	254	SUBJ57 (0).c3d	True
+SUBJ58	healthy	4	3	3	209	209	SUBJ58 (0).c3d	True
+SUBJ59	healthy	4	3	3	295	295	SUBJ59 (0).c3d	True
+SUBJ60	healthy	5	4	4	300	233	SUBJ60 (0).c3d	True
+SUBJ61	healthy	4	3	3	255	255	SUBJ61 (0).c3d	True
+SUBJ62	healthy	4	3	3	282	282	SUBJ62 (0).c3d	True
+SUBJ63	healthy	4	3	3	222	222	SUBJ63 (0).c3d	True
+SUBJ64	healthy	4	3	3	235	154	SUBJ64 (0).c3d	True
+SUBJ65	healthy	4	3	3	285	182	SUBJ65 (0).c3d	True
+SUBJ66	healthy	5	4	4	374	303	SUBJ66 (0).c3d	True
+SUBJ67	healthy	4	3	3	365	365	SUBJ67 (0).c3d	True
+SUBJ68	healthy	4	3	3	284	78	SUBJ68 (0).c3d	True
+SUBJ69	healthy	4	3	3	235	235	SUBJ69 (0).c3d	True
+SUBJ70	healthy	4	3	3	261	261	SUBJ70 (0).c3d	True
+SUBJ71	healthy	4	3	3	300	300	SUBJ71 (0).c3d	True
+SUBJ72	healthy	4	3	3	240	240	SUBJ72 (0).c3d	True
+SUBJ73	healthy	4	3	3	296	296	SUBJ73 (0).c3d	True
+SUBJ74	healthy	5	4	4	328	252	SUBJ74 (0).c3d	True
+SUBJ75	healthy	4	3	3	291	291	SUBJ75 (0).c3d	True
+SUBJ76	healthy	4	3	3	277	277	SUBJ76 (0).c3d	True
+SUBJ77	healthy	5	4	4	342	342	SUBJ77 (0).c3d	True
+SUBJ78	healthy	4	3	3	292	292	SUBJ78 (0).c3d	True
+SUBJ79	healthy	4	3	3	252	252	SUBJ79 (0).c3d	True
+SUBJ80	healthy	4	3	3	187	187	SUBJ80 (0).c3d	True
+SUBJ81	healthy	4	3	3	329	329	SUBJ81 (0).c3d	True
+SUBJ82	healthy	4	3	3	209	209	SUBJ82 (0).c3d	True
+SUBJ83	healthy	4	3	3	307	102	SUBJ83 (0).c3d	True
+SUBJ84	healthy	5	4	4	309	229	SUBJ84 (0).c3d	True
+SUBJ85	healthy	5	4	4	330	249	SUBJ85 (0).c3d	True
+SUBJ86	healthy	4	3	3	241	241	SUBJ86 (0).c3d	True
+SUBJ87	healthy	5	4	4	423	317	SUBJ87 (0).c3d	True
+SUBJ88	healthy	4	3	3	337	214	SUBJ88 (0).c3d	True
+SUBJ89	healthy	4	3	3	225	225	SUBJ89 (0).c3d	True
+SUBJ90	healthy	6	5	5	618	341	SUBJ90 (0).c3d	True
+SUBJ91	healthy	4	3	3	302	209	SUBJ91 (0).c3d	True
+SUBJ92	healthy	4	3	3	251	251	SUBJ92 (0).c3d	True
+SUBJ93	healthy	4	3	3	285	285	SUBJ93 (0).c3d	True
+SUBJ94	healthy	4	3	3	316	316	SUBJ94 (0).c3d	True
+SUBJ95	healthy	4	3	3	254	254	SUBJ95 (0).c3d	True
+SUBJ96	healthy	4	3	3	255	176	SUBJ96 (0).c3d	True
+SUBJ97	healthy	4	3	3	230	230	SUBJ97 (0).c3d	True
+SUBJ98	healthy	5	4	4	357	264	SUBJ98 (0).c3d	True
+SUBJ99	healthy	4	3	3	311	311	SUBJ99 (0).c3d	True
+TVC03	stroke	4	3	3	641	641	TVC-3 Cal 04.c3d	True
+TVC04	stroke	4	3	3	358	358	TVC-4 Cal 03.c3d	True
+TVC05	stroke	4	3	3	1565	1565	TVC-5 Cal 02.c3d	True
+TVC06	stroke	4	3	3	409	409	TVC-6 Cal 03.c3d	True
+TVC08	stroke	4	3	3	1282	1282	TVC-8 Cal 06.c3d	True
+TVC09	stroke	4	3	3	362	362	TVC-9 Cal 03.c3d	True
+TVC10	stroke	4	3	3	619	619	TVC-10 Cal 03.c3d	True
+TVC11	stroke	4	3	3	423	423	TVC-11 Cal 04.c3d	True
+TVC12	stroke	4	3	3	380	380	TVC-12 Cal 03.c3d	True
+TVC13	stroke	4	3	3	651	651	TVC-13 Cal 04.c3d	True
+TVC14	stroke	4	3	3	885	885	TVC-14 Cal 03.c3d	True
+TVC15	stroke	4	3	3	278	278	TVC-15 Cal 03.c3d	True
+TVC16	stroke	4	3	3	672	672	TVC-16 Cal 02.c3d	True
+TVC17	stroke	4	3	3	339	339	TVC-17 Cal 03.c3d	True
+TVC19	stroke	4	3	3	643	643	TVC-19 Cal 03.c3d	True
+TVC20	stroke	4	3	3	205	205	TVC-20 Cal 03.c3d	True
+TVC21	stroke	4	3	3	334	334	TVC-21 Cal 03.c3d	True
+TVC22	stroke	4	3	3	765	765	TVC-22 Cal 03.c3d	True
+TVC23	stroke	4	3	3	827	827	TVC-23 Cal 03.c3d	True
+TVC24	stroke	4	3	3	684	684	TVC-24 Cal 03.c3d	True
+TVC25	stroke	4	3	3	563	563	TVC-25 Cal 03.c3d	True
+TVC26	stroke	4	3	3	521	521	TVC-26 Cal 03.c3d	True
+TVC27	stroke	4	3	3	399	399	TVC-27 Cal 03.c3d	True
+TVC28	stroke	4	3	3	383	383	TVC-28 Cal 02.c3d	True
+TVC29	stroke	4	3	3	1276	1276	TVC-29 Cal 03.c3d	True
+TVC30	stroke	4	3	3	849	849	TVC-30 Cal 07.c3d	True
+TVC32	stroke	4	3	3	329	329	TVC-32 Cal 03.c3d	True
+TVC33	stroke	4	3	3	1237	1237	TVC-33 Cal 05.c3d	True
+TVC34	stroke	4	3	3	486	486	TVC-34 Cal 03.c3d	True
+TVC35	stroke	4	3	3	532	532	TVC-35 Cal 02.c3d	True
+TVC36	stroke	4	3	3	571	571	TVC-36 Cal 03.c3d	True
+TVC37	stroke	4	3	3	481	481	TVC-37 Cal 03.c3d	True
+TVC38	stroke	4	4	4	1283	989		True
+TVC39	stroke	4	3	3	1070	1070	TVC-39 Cal 03.c3d	True
+TVC40	stroke	4	3	3	317	317	TVC-40 Cal 03.c3d	True
+TVC41	stroke	4	3	3	587	587	TVC-41 Cal 03.c3d	True
+TVC42	stroke	3	2	2	381	381	TVC-42 Cal 02.c3d	True
+TVC43	stroke	4	3	3	296	296	TVC-43 Cal 03.c3d	True
+TVC46	stroke	4	3	3	257	257	TVC-46 Cal 03.c3d	True
+TVC47	stroke	5	4	4	1133	1133	BWA (0).c3d	True
+TVC48	stroke	4	3	3	945	945	TVC-48 Cal 02.c3d	True
+TVC49	stroke	4	3	3	712	712	TVC-49 Cal 03.c3d	True
+TVC51	stroke	4	3	3	349	349	TVC-51 Cal 05.c3d	True
+TVC52	stroke	4	3	3	238	150	TVC-52 Cal 05.c3d	True
+TVC53	stroke	4	3	3	404	124	TVC-53 Cal 02.c3d	True
+TVC54	stroke	4	3	3	653	653	TVC-54 Cal 01.c3d	True
+TVC55	stroke	4	3	3	321	321	TVC-55 Cal 02.c3d	True
+TVC57	stroke	4	3	3	610	610	TVC-57 Cal 01.c3d	True
+TVC58	stroke	4	3	3	343	343	TVC-58 Cal 02.c3d	True
+TVC60	stroke	4	3	3	282	282	TVC-60 Cal 03.c3d	True

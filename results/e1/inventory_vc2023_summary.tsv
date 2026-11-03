@@ -1,0 +1,4 @@
+group	full_body	subjects	walking_trials	frames_30hz	median_frames
+healthy	False	3	13	1104	353.0
+healthy	True	135	437	39635	285.0
+stroke	True	50	151	30130	526.5
