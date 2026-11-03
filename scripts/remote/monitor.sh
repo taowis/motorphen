@@ -14,11 +14,16 @@ basecall_mib() {
 }
 base=$(basecall_mib)
 paused=0
+idle=0
 echo "$(date '+%F %T') monitor start, basecall GPU memory baseline ${base} MiB" >> "$LOG"
 while true; do
   pids=$(pgrep -f "$PATTERN" || true)
   if [[ -z "$pids" && -e logs/run_e1.done ]]; then
     echo "$(date '+%F %T') training finished, monitor exits" >> "$LOG"; exit 0
+  fi
+  if [[ -z "$pids" ]]; then idle=$((idle + 1)); else idle=0; fi
+  if (( idle >= 20 )); then
+    echo "$(date '+%F %T') no training process for 10 min, monitor exits" >> "$LOG"; exit 0
   fi
   avail=$(free | awk '/Mem:/ {printf "%d", $7 * 100 / $2}')
   gpu=$(nvidia-smi --query-gpu=utilization.gpu,memory.used,memory.total --format=csv,noheader,nounits | tr -d ' ')
