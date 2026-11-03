@@ -28,3 +28,4 @@ __pycache__/
 # derived data, rebuilt by scripts/01_*
 data/processed/
 *.egg-info/
+logs/
