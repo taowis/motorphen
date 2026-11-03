@@ -1,0 +1,10 @@
+start 2026-11-03 19:34:17 commit 640404c848541657cbfe73cfe100c53ba503a272
+n25 seed 1 start 2026-11-03 19:34:17 epochs 1226
+n25 seed 1 done 2026-11-03 20:30:41 exit 0
+n25 seed 2 start 2026-11-03 20:30:41 epochs 1226
+n25 seed 2 done 2026-11-03 21:27:06 exit 0
+n50 seed 1 start 2026-11-03 21:27:06 epochs 570
+n50 seed 1 done 2026-11-03 22:21:23 exit 0
+n50 seed 2 start 2026-11-03 22:21:23 epochs 570
+n50 seed 2 done 2026-11-03 23:15:42 exit 0
+all done 2026-11-03 23:15:42
