@@ -45,7 +45,7 @@ def load_model(tag, dev):
     from torch.torch_version import TorchVersion
     with torch.serialization.safe_globals([TorchVersion]):
         ck = torch.load(f"checkpoints/{tag}.pt", map_location="cpu", weights_only=True)
-    m = GaitMAE().to(dev).eval()
+    m = GaitMAE(n_frames=int(ck["run"].get("window", 7))).to(dev).eval()
     m.load_state_dict(ck["model"])
     return m
 

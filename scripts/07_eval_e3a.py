@@ -67,7 +67,7 @@ def main():
         from torch.torch_version import TorchVersion
         with torch.serialization.safe_globals([TorchVersion]):
             ck = torch.load(f"checkpoints/e1_{tag}.pt", map_location="cpu", weights_only=True)
-        model = GaitMAE().to(dev).eval()
+        model = GaitMAE(n_frames=int(ck["run"].get("window", 7))).to(dev).eval()
         model.load_state_dict(ck["model"])
         for r in seg.itertuples():
             x = torch.tensor(np.deg2rad(A[r.start:r.start + r.length].astype(np.float64)),

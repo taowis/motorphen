@@ -87,7 +87,7 @@ def main():
     from torch.torch_version import TorchVersion
     with torch.serialization.safe_globals([TorchVersion]):
         ck = torch.load(args.ckpt or f"checkpoints/e1_{args.tag}.pt", map_location="cpu", weights_only=True)
-    model = GaitMAE().to(dev).eval()
+    model = GaitMAE(n_frames=int(ck["run"].get("window", 7))).to(dev).eval()
     model.load_state_dict(ck["model"])
     rom_d = rom.to(dev)
 
