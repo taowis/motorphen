@@ -1,0 +1,23 @@
+{
+ "tag": "seed2",
+ "seed": 2,
+ "epochs": 250,
+ "batch": 256,
+ "micro_batch": 256,
+ "max_mem_gb": 12.0,
+ "device": "cuda",
+ "n_params": 10005132,
+ "train_windows": 25760,
+ "val_windows": 1786,
+ "split_seed": 20261103,
+ "data": "data/processed/vc2023.npz",
+ "data_md5": "fac569287d6aceefac10c59eaedfe0ab",
+ "torch": "2.11.0+cu128",
+ "python": "3.12.13",
+ "git_commit": "",
+ "started": "2026-11-03 14:35:33",
+ "gpu": "NVIDIA GeForce RTX 5090",
+ "gpu_peak_gb": 9.55,
+ "finished": "2026-11-03 15:28:42",
+ "minutes": 53.140438159306846
+}

@@ -6,7 +6,9 @@
 set -u
 cd "$(dirname "$0")/../.."
 LOG=logs/monitor.log
-PATTERN='scripts/02_train_e1.py'
+# anchored to the python command: a shell whose command line merely mentions the
+# script (e.g. an ssh launch command) must not count as a running job
+PATTERN='^\.venv/bin/python scripts/02_train_e1\.py'
 CRIT=${CRIT_PCT:-12}; RESUME=${RESUME_PCT:-30}; BASECALL_MARGIN_MIB=${BASECALL_MARGIN_MIB:-1024}
 basecall_mib() {
   nvidia-smi --query-compute-apps=process_name,used_memory --format=csv,noheader,nounits 2>/dev/null \

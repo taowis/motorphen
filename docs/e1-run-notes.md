@@ -18,3 +18,12 @@
 - Capped test after the fix: 20 batches of 256 in about 2 minutes, no cap hit.
   Speed is about 4.8 s per batch, 101 batches per epoch (25,760 training
   windows), so 250 epochs would take about 35 hours on this laptop.
+
+## 2026-11-03 13:42 to 15:29, seeds 1 and 2 on the GPU server
+
+- Both seeds completed (exit 0), about 53 minutes each, no monitor pause.
+- After the run the monitor did not exit: the remote shell of the ssh command
+  used to launch the job stayed alive (orphaned) and its command line contained
+  the monitor's match pattern `scripts/02_train_e1.py`. The shell was ended by
+  hand at 15:33 and the monitor exited. The pattern is now anchored to the
+  python command (`^\.venv/bin/python scripts/02_train_e1\.py`).
