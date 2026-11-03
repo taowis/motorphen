@@ -2,10 +2,12 @@
 # Log host memory and GPU state every 30 s while training runs on the shared
 # GPU server. Pauses training (SIGSTOP) when host memory is short or when the
 # sequencer's basecall server starts using more GPU memory, resumes after.
-# Run from the project directory: nohup scripts/remote/monitor.sh > /dev/null 2>&1 &
+# Run from the project directory: DONE=logs/run_e1.done nohup scripts/remote/monitor.sh > /dev/null 2>&1 &
+# DONE is the marker file the run script writes when it finishes.
 set -u
 cd "$(dirname "$0")/../.."
-LOG=logs/monitor.log
+LOG=${LOG:-logs/monitor.log}
+DONE=${DONE:-logs/run_e1.done}
 # anchored to the python command: a shell whose command line merely mentions the
 # script (e.g. an ssh launch command) must not count as a running job
 PATTERN='^\.venv/bin/python scripts/02_train_e1\.py'
@@ -20,7 +22,7 @@ idle=0
 echo "$(date '+%F %T') monitor start, basecall GPU memory baseline ${base} MiB" >> "$LOG"
 while true; do
   pids=$(pgrep -f "$PATTERN" || true)
-  if [[ -z "$pids" && -e logs/run_e1.done ]]; then
+  if [[ -z "$pids" && -e "$DONE" ]]; then
     echo "$(date '+%F %T') training finished, monitor exits" >> "$LOG"; exit 0
   fi
   if [[ -z "$pids" ]]; then idle=$((idle + 1)); else idle=0; fi

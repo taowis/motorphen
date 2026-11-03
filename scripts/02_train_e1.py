@@ -30,7 +30,7 @@ from motorphen.train import compute_losses, gather_windows, make_optimizer, wind
 DATA = "data/processed/vc2023.npz"
 SPLIT_SEED = 20261103
 N_TRAIN, N_VAL = 110, 8
-T, J = 7, 12
+J = 12
 
 
 def md5(path):
@@ -52,6 +52,12 @@ def code_commit():
     return ""
 
 
+def ckpt_name(out, tag):
+    """e1_seed1 for the E1 runs; e3_young_seed1 etc. for runs written to results/e3/<name>."""
+    name = os.path.basename(os.path.normpath(out))
+    return f"e1_{tag}" if name == "e1" else f"{name}_{tag}"
+
+
 def make_split(seg):
     full = sorted(seg.loc[(seg.group == "healthy") & seg.has_upper, "subject"].unique())
     rng = np.random.default_rng(SPLIT_SEED)
@@ -71,12 +77,17 @@ def main():
                     help="gradient accumulation chunk; effective batch stays --batch")
     ap.add_argument("--max-batches", type=int, default=0, help="stop each epoch early (testing)")
     ap.add_argument("--tag", default="")
+    ap.add_argument("--window", type=int, default=7, help="frames per window (paper: 7)")
+    ap.add_argument("--split-file", default=None,
+                    help="TSV with subject and split (train/val/...); default: the E1 split")
+    ap.add_argument("--out", default="results/e1", help="directory for split, log and run record")
     ap.add_argument("--max-mem-gb", type=float, default=4.0,
                     help="stop the run if process RSS plus MPS memory exceeds this")
     args = ap.parse_args()
     memcap.start(args.max_mem_gb)
 
     torch.manual_seed(args.seed)
+    T = args.window
     if torch.cuda.is_available():
         device = torch.device("cuda")
     elif torch.backends.mps.is_available():
@@ -85,9 +96,12 @@ def main():
         device = torch.device("cpu")
     z = np.load(DATA, allow_pickle=True)
     seg = pd.DataFrame({k: z[k] for k in ["subject", "group", "trial", "start", "length", "has_upper"]})
-    split = make_split(seg)
-    os.makedirs("results/e1", exist_ok=True)
-    pd.Series(split, name="split").rename_axis("subject").to_csv("results/e1/split.tsv", sep="\t")
+    os.makedirs(args.out, exist_ok=True)
+    if args.split_file:
+        split = pd.read_csv(args.split_file, sep="\t").set_index("subject")["split"].to_dict()
+    else:
+        split = make_split(seg)
+        pd.Series(split, name="split").rename_axis("subject").to_csv(f"{args.out}/split.tsv", sep="\t")
 
     seg["split"] = seg.subject.map(split)
     usable = seg[seg.has_upper & seg.split.notna()]
@@ -104,6 +118,7 @@ def main():
     run = dict(tag=tag, seed=args.seed, epochs=args.epochs, batch=args.batch,
                micro_batch=args.micro_batch, max_mem_gb=args.max_mem_gb, device=str(device),
                n_params=n_params, train_windows=len(train_idx), val_windows=len(val_idx),
+               window=T, split_file=args.split_file or "E1 split", out=args.out,
                split_seed=SPLIT_SEED, data=DATA, data_md5=md5(DATA), torch=str(torch.__version__),
                python=platform.python_version(),
                git_commit=code_commit(),
@@ -154,14 +169,14 @@ def main():
               flush=True)
 
     os.makedirs("checkpoints", exist_ok=True)
-    torch.save({"model": model.state_dict(), "run": run}, f"checkpoints/e1_{tag}.pt")
-    pd.DataFrame(log).to_csv(f"results/e1/train_log_{tag}.tsv", sep="\t", index=False)
+    torch.save({"model": model.state_dict(), "run": run}, f"checkpoints/{ckpt_name(args.out, tag)}.pt")
+    pd.DataFrame(log).to_csv(f"{args.out}/train_log_{tag}.tsv", sep="\t", index=False)
     if device.type == "cuda":
         run["gpu"] = torch.cuda.get_device_name(0)
         run["gpu_peak_gb"] = round(torch.cuda.max_memory_allocated() / 1e9, 2)
     run["finished"] = time.strftime("%Y-%m-%d %H:%M:%S")
     run["minutes"] = (time.time() - t0) / 60
-    with open(f"results/e1/run_{tag}.json", "w") as f:
+    with open(f"{args.out}/run_{tag}.json", "w") as f:
         json.dump(run, f, indent=1)
 
 
