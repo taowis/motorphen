@@ -150,6 +150,8 @@ def main():
                 orig_c.append((trial(r), st))
                 rec_c.append((rec, st))
             side_scores[subj] = {s: float(np.mean(v)) for s, v in acc.items()}
+            if dev.type == "mps":
+                torch.mps.empty_cache()   # cached MPS memory otherwise grows across trials
             o = side_cycles(orig_c, par)
             c = side_cycles(rec_c, par)
             for (joint, ax), co, cr, (mu, _) in zip(SIDE_ANGLES[par], o, c, ref[par]):
@@ -157,6 +159,7 @@ def main():
                     corr_rows.append(dict(tag=tag, subject=subj, angle=f"{joint}_{ax}",
                                           rmse_original=float(np.sqrt(np.mean((co.mean(0) - mu) ** 2))),
                                           rmse_reconstructed=float(np.sqrt(np.mean((cr.mean(0) - mu) ** 2)))))
+        del model
         for s in ("left", "right"):
             base[f"model_{tag}_{s}"] = [side_scores[i][s] for i in base.index]
         summary["methods"][f"model_{tag}"], correct[f"model_{tag}"] = metrics(base, f"model_{tag}")

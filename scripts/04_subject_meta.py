@@ -1,15 +1,16 @@
 """Subject characteristics (age, sex, lesion side, clinical scores) from the
 post-processed MAT files, matched to the C3D subject folders.
 
-Only Data.Sub(i).sub_char is read (h5py, MATLAB 7.3 / HDF5), not the gait data.
-The MAT subject index is matched to a folder by body mass and height against
-the C3D PROCESSING parameters; the match is checked, not assumed.
+Only Sub(i).sub_char is read (h5py, MATLAB 7.3 / HDF5), not the gait data.
+MAT subject i is mapped to the i-th folder in numeric order, and every pair is
+checked against the C3D PROCESSING body mass and height (see match()).
 
 Writes data/processed/subject_meta.tsv and results/e2/meta_mapping_check.tsv.
 """
 
 import glob
 import os
+import re
 
 import ezc3d
 import h5py
@@ -41,7 +42,8 @@ def _value(f, obj):
 def read_sub_char(path):
     rows = []
     with h5py.File(path, "r") as f:
-        sub = f["Data"]["Sub"]
+        # the description file says Data.Sub; in the files the top-level variable is Sub
+        sub = f["Sub"] if "Sub" in f else f["Data"]["Sub"]
         refs = np.ravel(sub["sub_char"][()])
         for i, ref in enumerate(refs):
             g = f[ref]
@@ -64,16 +66,29 @@ def c3d_anthropometrics(pattern):
     return pd.DataFrame(rows)
 
 
-def match(meta, anth):
+def folder_number(name):
+    return int(re.sub(r"\D", "", name))
+
+
+def match(meta, pattern, anth):
+    """MAT subject i is taken to be the i-th folder in numeric order (SUBJ1..138,
+    TVC03..TVC60); each pair is then checked against the C3D anthropometrics.
+
+    check = verified (mass within 0.5 kg and height within 5 mm),
+    inconsistent, or not_checkable (no PROCESSING parameters in the C3D files)."""
+    folders = sorted((os.path.basename(d) for d in glob.glob(pattern) if os.path.isdir(d)), key=folder_number)
+    if len(folders) != len(meta):
+        raise SystemExit(f"{len(folders)} folders but {len(meta)} MAT subjects")
+    a = anth.set_index("subject")
     out = []
-    for r in meta.itertuples():
-        d = (np.abs(anth.bodymass - r.Weight) / 1.0) + (np.abs(anth.height - r.Height) / 10.0)
-        k = int(d.argmin())
-        second = float(np.sort(d)[1]) if len(d) > 1 else np.inf
-        out.append(dict(mat_index=r.mat_index, subject=anth.subject.iloc[k],
-                        d_mass=float(anth.bodymass.iloc[k] - r.Weight),
-                        d_height=float(anth.height.iloc[k] - r.Height),
-                        next_best=second))
+    for r, subject in zip(meta.itertuples(), folders):
+        row = dict(mat_index=r.mat_index, subject=subject, d_mass=np.nan, d_height=np.nan, check="not_checkable")
+        if subject in a.index:
+            row["d_mass"] = float(a.bodymass[subject] - r.Weight)
+            row["d_height"] = float(a.height[subject] - r.Height)
+            ok = abs(row["d_mass"]) <= 0.5 + 1e-6 and abs(row["d_height"]) <= 5
+            row["check"] = "verified" if ok else "inconsistent"
+        out.append(row)
     return pd.DataFrame(out)
 
 
@@ -85,20 +100,19 @@ def main():
         meta = read_sub_char(mat)
         print(group, "sub_char fields:", [c for c in meta.columns if c != "mat_index"])
         anth = c3d_anthropometrics(FOLDERS[group])
-        m = match(meta, anth)
+        m = match(meta, FOLDERS[group], anth)
         m["group"] = group
-        m["ok"] = (m.d_mass.abs() < 0.5) & (m.d_height.abs() < 5) & ~m.subject.duplicated(keep=False)
         checks.append(m)
-        t = meta.merge(m[["mat_index", "subject", "ok"]], on="mat_index")
+        t = meta.merge(m[["mat_index", "subject", "check"]], on="mat_index")
         t["group"] = group
         tables.append(t)
-        print(group, f"{int(m.ok.sum())}/{len(m)} matched unambiguously")
+        print(group, m.check.value_counts().to_dict())
     meta = pd.concat(tables, ignore_index=True)
     if "LesionLeft" in meta:
         meta["paretic"] = np.where(meta.group != "stroke", "",
                                    np.where(meta.LesionLeft == 1, "right",
                                             np.where(meta.LesionLeft == 0, "left", "")))
-    meta.loc[~meta.ok, "paretic"] = ""
+    meta.loc[meta.check == "inconsistent", "paretic"] = ""
     meta.to_csv("data/processed/subject_meta.tsv", sep="\t", index=False)
     pd.concat(checks).to_csv("results/e2/meta_mapping_check.tsv", sep="\t", index=False)
 

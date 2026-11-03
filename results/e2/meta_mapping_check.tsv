@@ -1,0 +1,189 @@
+mat_index	subject	d_mass	d_height	check	group
+1	SUBJ01	-1.5258789076710855e-06	0.0	verified	healthy
+2	SUBJ02	1.5258789005656581e-06	0.0	verified	healthy
+3	SUBJ03	1.5258789005656581e-06	0.0	verified	healthy
+4	SUBJ04	-10.699998474121088	115.0	inconsistent	healthy
+5	SUBJ05	-1.5258789076710855e-06	0.0	verified	healthy
+6	SUBJ06	-1.5258789005656581e-06	0.0	verified	healthy
+7	SUBJ07	1.5258789076710855e-06	0.0	verified	healthy
+8	SUBJ08	1.5258789005656581e-06	0.0	verified	healthy
+9	SUBJ09	3.051757815342171e-06	0.0	verified	healthy
+10	SUBJ10	-1.5258789005656581e-06	0.0	verified	healthy
+11	SUBJ11	-3.100001525878909	-80.0	inconsistent	healthy
+12	SUBJ12	1.5258789005656581e-06	0.0	verified	healthy
+13	SUBJ13	0.0	0.0	verified	healthy
+14	SUBJ14	-1.5258789005656581e-06	0.0	verified	healthy
+15	SUBJ15	-1.5258789005656581e-06	0.0	verified	healthy
+16	SUBJ16	1.5258789005656581e-06	0.0	verified	healthy
+17	SUBJ17	3.051757815342171e-06	0.0	verified	healthy
+18	SUBJ18	1.5258789005656581e-06	0.0	verified	healthy
+19	SUBJ19	-3.051757815342171e-06	0.0	verified	healthy
+20	SUBJ20	1.2207031261368684e-06	0.0	verified	healthy
+21	SUBJ21	0.0	0.0	verified	healthy
+22	SUBJ22	-1.5258789005656581e-06	0.0	verified	healthy
+23	SUBJ23	0.0	0.0	verified	healthy
+24	SUBJ24	0.0	0.0	verified	healthy
+25	SUBJ25	0.0	0.0	verified	healthy
+26	SUBJ26	-1.5258789005656581e-06	0.0	verified	healthy
+27	SUBJ27	1.5258789005656581e-06	0.0	verified	healthy
+28	SUBJ28	-7.629394502828291e-07	0.0	verified	healthy
+29	SUBJ29	3.051757815342171e-06	0.0	verified	healthy
+30	SUBJ30	-3.051757815342171e-06	0.0	verified	healthy
+31	SUBJ31	-3.051757815342171e-06	0.0	verified	healthy
+32	SUBJ32	1.5258789005656581e-06	0.0	verified	healthy
+33	SUBJ33	3.051757815342171e-06	0.0	verified	healthy
+34	SUBJ34	3.051757815342171e-06	0.0	verified	healthy
+35	SUBJ35	0.0	0.0	verified	healthy
+36	SUBJ36	1.5258789076710855e-06	0.0	verified	healthy
+37	SUBJ37	-9.699998474121088	95.0	inconsistent	healthy
+38	SUBJ38	3.051757815342171e-06	0.0	verified	healthy
+39	SUBJ39	3.051757815342171e-06	0.0	verified	healthy
+40	SUBJ40	3.051757815342171e-06	0.0	verified	healthy
+41	SUBJ41	0.0	0.0	verified	healthy
+42	SUBJ42	1.5258789005656581e-06	0.0	verified	healthy
+43	SUBJ43	3.051757815342171e-06	0.0	verified	healthy
+44	SUBJ44	0.0	0.0	verified	healthy
+45	SUBJ45	-3.0	-130.0	inconsistent	healthy
+46	SUBJ46	1.5258789076710855e-06	0.0	verified	healthy
+47	SUBJ47	-3.051757815342171e-06	-1480.5	inconsistent	healthy
+48	SUBJ48	-1.5258789076710855e-06	0.0	verified	healthy
+49	SUBJ49	1.5258789005656581e-06	0.0	verified	healthy
+50	SUBJ50	0.0	0.0	verified	healthy
+51	SUBJ51	0.0	0.0	verified	healthy
+52	SUBJ52	-7.629394502828291e-07	0.0	verified	healthy
+53	SUBJ53	1.5258789076710855e-06	0.0	verified	healthy
+54	SUBJ54	7.629394502828291e-07	0.0	verified	healthy
+55	SUBJ55	3.051757815342171e-06	0.0	verified	healthy
+56	SUBJ56	3.051757815342171e-06	0.0	verified	healthy
+57	SUBJ57	-7.629394502828291e-07	0.0	verified	healthy
+58	SUBJ58	-32.50000076293945	-105.0	inconsistent	healthy
+59	SUBJ59	0.0	0.0	verified	healthy
+60	SUBJ60	0.0	0.0	verified	healthy
+61	SUBJ61	0.0	0.0	verified	healthy
+62	SUBJ62	-7.629394502828291e-07	0.0	verified	healthy
+63	SUBJ63	0.0	0.0	verified	healthy
+64	SUBJ64	-7.629394502828291e-07	0.0	verified	healthy
+65	SUBJ65	7.629394502828291e-07	0.0	verified	healthy
+66	SUBJ66	0.7000030517578182	-215.0	inconsistent	healthy
+67	SUBJ67	-11.60000305175781	10.0	inconsistent	healthy
+68	SUBJ68	-3.051757815342171e-06	0.0	verified	healthy
+69	SUBJ69	-10.900003051757807	-135.0	inconsistent	healthy
+70	SUBJ70	1.5258789005656581e-06	0.0	verified	healthy
+71	SUBJ71	0.0	0.0	verified	healthy
+72	SUBJ72	-1.5258789005656581e-06	0.0	verified	healthy
+73	SUBJ73	0.0	0.0	verified	healthy
+74	SUBJ74	-1.5258789005656581e-06	0.0	verified	healthy
+75	SUBJ75	1.5258789005656581e-06	0.0	verified	healthy
+76	SUBJ76	-1.5258789076710855e-06	0.0	verified	healthy
+77	SUBJ77	1.5258789005656581e-06	0.0	verified	healthy
+78	SUBJ78	-1.5258789005656581e-06	0.0	verified	healthy
+79	SUBJ79	-1.5258789005656581e-06	0.0	verified	healthy
+80	SUBJ80	-1.5258789005656581e-06	0.0	verified	healthy
+81	SUBJ81	-3.051757815342171e-06	0.0	verified	healthy
+82	SUBJ82	0.0	0.0	verified	healthy
+83	SUBJ83	-1.5258789076710855e-06	0.0	verified	healthy
+84	SUBJ84	-1.5258789076710855e-06	0.0	verified	healthy
+85	SUBJ85	-1.5258789005656581e-06	0.0	verified	healthy
+86	SUBJ86	3.051757815342171e-06	0.0	verified	healthy
+87	SUBJ87	0.0	0.0	verified	healthy
+88	SUBJ88	6.103515630684342e-06	0.0	verified	healthy
+89	SUBJ89	1.5258789005656581e-06	0.0	verified	healthy
+90	SUBJ90	3.051757815342171e-06	0.0	verified	healthy
+91	SUBJ91	0.0	0.0	verified	healthy
+92	SUBJ92	-1.5258789005656581e-06	0.0	verified	healthy
+93	SUBJ93	7.629394502828291e-07	0.0	verified	healthy
+94	SUBJ94	7.629394502828291e-07	0.0	verified	healthy
+95	SUBJ95	3.051757815342171e-06	0.0	verified	healthy
+96	SUBJ96	3.051757815342171e-06	0.0	verified	healthy
+97	SUBJ97	1.5258789005656581e-06	0.0	verified	healthy
+98	SUBJ98	1.5258789005656581e-06	0.0	verified	healthy
+99	SUBJ99	1.5258789005656581e-06	0.0	verified	healthy
+100	SUBJ100			not_checkable	healthy
+101	SUBJ101	1.5258789005656581e-06	0.0	verified	healthy
+102	SUBJ102	0.0	-1557.0	inconsistent	healthy
+103	SUBJ103	-12.4999984741211	50.0	inconsistent	healthy
+104	SUBJ104	-1.5258789005656581e-06	0.0	verified	healthy
+105	SUBJ105	0.0	0.0	verified	healthy
+106	SUBJ106	-1.5258789005656581e-06	0.0	verified	healthy
+107	SUBJ107	-3.051757815342171e-06	0.0	verified	healthy
+108	SUBJ108	1.5258789076710855e-06	0.0	verified	healthy
+109	SUBJ109	1.5258789005656581e-06	0.0	verified	healthy
+110	SUBJ110	-3.051757815342171e-06	0.0	verified	healthy
+111	SUBJ111	7.629394502828291e-07	0.0	verified	healthy
+112	SUBJ112	0.0	0.0	verified	healthy
+113	SUBJ113	-1.5258789005656581e-06	0.0	verified	healthy
+114	SUBJ114	3.051757815342171e-06	0.0	verified	healthy
+115	SUBJ115	7.629394502828291e-07	0.0	verified	healthy
+116	SUBJ116	-1.5258789005656581e-06	0.0	verified	healthy
+117	SUBJ117	-1.5258789005656581e-06	0.0	verified	healthy
+118	SUBJ118			not_checkable	healthy
+119	SUBJ119			not_checkable	healthy
+120	SUBJ120			not_checkable	healthy
+121	SUBJ121			not_checkable	healthy
+122	SUBJ122			not_checkable	healthy
+123	SUBJ123			not_checkable	healthy
+124	SUBJ124	0.0	0.0	verified	healthy
+125	SUBJ125			not_checkable	healthy
+126	SUBJ126			not_checkable	healthy
+127	SUBJ127			not_checkable	healthy
+128	SUBJ128			not_checkable	healthy
+129	SUBJ129			not_checkable	healthy
+130	SUBJ130			not_checkable	healthy
+131	SUBJ131			not_checkable	healthy
+132	SUBJ132			not_checkable	healthy
+133	SUBJ133			not_checkable	healthy
+134	SUBJ134			not_checkable	healthy
+135	SUBJ135	0.0	0.0	verified	healthy
+136	SUBJ136			not_checkable	healthy
+137	SUBJ137			not_checkable	healthy
+138	SUBJ138			not_checkable	healthy
+1	TVC03	-0.09999847412109375	0.0	verified	stroke
+2	TVC04	-0.5	0.0	verified	stroke
+3	TVC05	-0.40000152587890625	0.0	verified	stroke
+4	TVC06	-0.1999969482421875	0.0	verified	stroke
+5	TVC08	0.0	0.0	verified	stroke
+6	TVC09	-0.5	0.0	verified	stroke
+7	TVC10	-0.09999847412109375	0.0	verified	stroke
+8	TVC11	0.20000076293945312	0.0	verified	stroke
+9	TVC12	0.0	0.0	verified	stroke
+10	TVC13	0.0	0.0	verified	stroke
+11	TVC14	0.0	0.0	verified	stroke
+12	TVC15	-0.5	0.0	verified	stroke
+13	TVC16	0.0	0.0	verified	stroke
+14	TVC17	0.0	0.0	verified	stroke
+15	TVC19	-0.1999969482421875	0.0	verified	stroke
+16	TVC20	0.0	0.0	verified	stroke
+17	TVC21	0.0	0.0	verified	stroke
+18	TVC22	0.0	0.0	verified	stroke
+19	TVC23	0.0	0.0	verified	stroke
+20	TVC24			not_checkable	stroke
+21	TVC25	0.0	0.0	verified	stroke
+22	TVC26	0.0	0.0	verified	stroke
+23	TVC27	0.0	0.0	verified	stroke
+24	TVC28	0.0	0.0	verified	stroke
+25	TVC29	0.0	0.0	verified	stroke
+26	TVC30	0.0	0.0	verified	stroke
+27	TVC32	0.0	0.0	verified	stroke
+28	TVC33	0.0	0.0	verified	stroke
+29	TVC34			not_checkable	stroke
+30	TVC35	0.0	0.0	verified	stroke
+31	TVC36	0.40000152587890625	0.0	verified	stroke
+32	TVC37	0.0	0.0	verified	stroke
+33	TVC38	0.0	0.0	verified	stroke
+34	TVC39	-0.40000152587890625	0.0	verified	stroke
+35	TVC40	0.0	0.0	verified	stroke
+36	TVC41	0.0	0.0	verified	stroke
+37	TVC42	0.0	0.0	verified	stroke
+38	TVC43	0.0	0.0	verified	stroke
+39	TVC46	0.0	0.0	verified	stroke
+40	TVC47	0.0	0.0	verified	stroke
+41	TVC48	0.0	0.0	verified	stroke
+42	TVC49	0.0	0.0	verified	stroke
+43	TVC51	0.0	0.0	verified	stroke
+44	TVC52	0.0	0.0	verified	stroke
+45	TVC53	0.0	0.0	verified	stroke
+46	TVC54	0.0	0.0	verified	stroke
+47	TVC55	0.0	0.0	verified	stroke
+48	TVC57			not_checkable	stroke
+49	TVC58	-0.5	0.0	verified	stroke
+50	TVC60	0.0	0.0	verified	stroke

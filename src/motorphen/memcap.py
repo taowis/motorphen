@@ -6,6 +6,7 @@ allocated memory; above the limit it prints a message and exits with code 3.
 
 import os
 import subprocess
+import sys
 import threading
 import time
 
@@ -26,12 +27,17 @@ def mps_gb():
     return 0.0
 
 
-def start(limit_gb, interval=0.5, log=print):
+def start(limit_gb, interval=0.5, log=None):
+    def say(msg):
+        if log is not None:
+            log(msg)
+        print(msg, file=sys.stderr, flush=True)
+
     def watch():
         while True:
             r, g = rss_gb(), mps_gb()
             if r + g > limit_gb:
-                log(f"memcap: stopping, rss={r:.2f} GB + mps={g:.2f} GB > {limit_gb} GB")
+                say(f"memcap: stopping, rss={r:.2f} GB + mps={g:.2f} GB > {limit_gb} GB")
                 os._exit(3)
             time.sleep(interval)
 

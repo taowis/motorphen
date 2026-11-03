@@ -60,3 +60,13 @@ trials. Predicted paretic side = the side with the higher score.
 
 Age matching (E3), window length, K and ankle ablations (E3), Parkinson's
 disease (E5).
+
+## Changes after the plan was written (2026-11-03)
+
+- Subject mapping: matching on body mass and height alone was ambiguous, so
+  MAT subject i is mapped to the i-th folder in numeric order and each pair is
+  checked (47 stroke subjects verified, 3 not checkable and kept; results
+  without them are reported). The plan's exclusion rule applies to
+  inconsistent pairs; there were none in the stroke group.
+- The majority-class rate (64% left-paretic) is reported next to accuracy.
+- Trials: 147 (trials with full-body angles of the 50 subjects).
