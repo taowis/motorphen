@@ -41,6 +41,17 @@ def md5(path):
     return h.hexdigest()
 
 
+def code_commit():
+    """git commit of the code: from git, or from the COMMIT file written by
+    scripts/remote/sync.sh when the copy is not a git checkout."""
+    r = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True)
+    if r.returncode == 0 and r.stdout.strip():
+        return r.stdout.strip()
+    if os.path.exists("COMMIT"):
+        return open("COMMIT").read().strip()
+    return ""
+
+
 def make_split(seg):
     full = sorted(seg.loc[(seg.group == "healthy") & seg.has_upper, "subject"].unique())
     rng = np.random.default_rng(SPLIT_SEED)
@@ -95,8 +106,7 @@ def main():
                n_params=n_params, train_windows=len(train_idx), val_windows=len(val_idx),
                split_seed=SPLIT_SEED, data=DATA, data_md5=md5(DATA), torch=str(torch.__version__),
                python=platform.python_version(),
-               git_commit=subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
-                                         text=True).stdout.strip(),
+               git_commit=code_commit(),
                started=time.strftime("%Y-%m-%d %H:%M:%S"))
     print(json.dumps(run, indent=1))
 
