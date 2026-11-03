@@ -2,7 +2,6 @@
 
 from dataclasses import dataclass, field
 
-import ezc3d
 import numpy as np
 
 # The 12 joints used by Motta et al. Plug-in Gait gives mirrored left/right
@@ -53,6 +52,8 @@ def _labels(point_params):
 
 def read_trial(path):
     """Return a Trial, or None if the file has no gait events or no lower-limb angles."""
+    import ezc3d  # only needed for reading C3D, not for training
+
     c = ezc3d.c3d(path)
     params = c["parameters"]
     labels = _labels(params["POINT"])

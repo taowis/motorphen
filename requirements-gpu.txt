@@ -1,0 +1,8 @@
+numpy==2.5.4
+openpyxl==3.1.5
+pandas==3.1.0
+pytest==9.2.0
+scikit-learn==1.9.1
+scipy==1.18.1
+statsmodels==0.15.0
+torch==2.11.0  # newest build for CUDA 12.8; the workstation driver (570) supports up to 12.8
