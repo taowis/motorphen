@@ -29,6 +29,9 @@ fetch https://ndownloader.figshare.com/files/42450093 $VC/MATdatafiles_descripti
 # Post-processed Excel files: needed for age, sex, lesion side and clinical scores
 fetch https://ndownloader.figshare.com/files/42450072 $VC/MAT_normalizedData_AbleBodiedAdults_v06-03-23.xlsx 7d6585bb1bfd61f53840aa3a0eb288de
 fetch https://ndownloader.figshare.com/files/42450084 $VC/MAT_normalizedData_PostStrokeAdults_v27-02-23.xlsx d79ec047d50f5a957d164a25bffabf32
+# Post-processed MAT files: the only place with sub_char (age, sex, lesion side, clinical scores)
+fetch https://ndownloader.figshare.com/files/42450087 $VC/MAT_normalizedData_PostStrokeAdults_v27-02-23.mat b866f174a3e7cd17aa5652f5383a5d4c
+fetch https://ndownloader.figshare.com/files/42450096 $VC/MAT_normalizedData_AbleBodiedAdults_v06-03-23.mat 21a41aee1bf0306044a4cf53b1e01890
 
 # Shida et al. 2023, Front Neurosci 17:992585. Figshare 10.6084/m9.figshare.14896881.v4
 SH=data/raw/shida2023

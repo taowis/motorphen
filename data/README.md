@@ -20,8 +20,10 @@ span and 50 stroke survivors. Sci Data 2023;10:852. doi:10.1038/s41597-023-02767
 - Used: the two C3D archives (138_HealthyPiG.zip, 50_StrokePiG.zip), two
   description spreadsheets, and the two post-processed Excel files, which hold
   the subject characteristics (age, sex, lesion side, FAC, POMA, TIS) that the
-  C3D files lack. Not downloaded: the post-processed MAT files (6.2 GB and
-  2.9 GB), since the C3D files hold the continuous data we need.
+  C3D files lack (it turned out they do not hold them either).
+- The two post-processed MAT files (6.2 GB and 2.9 GB) were added on
+  2026-11-03 because subject characteristics (sub_char: age, sex, lesion side,
+  FAC, POMA, TIS) are stored only there. Only sub_char is read from them.
 - The C3D archives are unzipped to `data/raw/vancriekinge2023/extracted/`
   (stroke subjects come as one zip per subject inside 50_StrokePiG.zip).
 - Vicon, 100 Hz, full-body Plug-in Gait, barefoot overground walking at
