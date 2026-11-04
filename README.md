@@ -13,7 +13,20 @@ from the published description, not their software.
 
 ## Status
 
-Early setup. Nothing here is validated yet.
+The reimplementation has been trained on 110 able-bodied adults from a public
+motion capture dataset (Van Criekinge et al., Sci Data 2023) and evaluated on
+held-out healthy adults and on 50 stroke survivors whose paretic side is known.
+Results are exploratory and come from our implementation of the published
+description, with marker-based rather than markerless input.
+
+- E1, specificity in held-out healthy adults: `results/e1/README.md`
+- E2, paretic side in stroke survivors: `results/e2/README.md`
+- E3, inference choices, age range of the reference, window length and
+  training size: `results/e3/`
+- Short summary of E1 and E2: `docs/summary-e1-e2.md`
+
+Details the paper leaves open are our choices, listed in
+`docs/e1-implementation-spec.md`.
 
 ## Layout
 
