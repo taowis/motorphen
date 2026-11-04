@@ -109,7 +109,7 @@ comparable across epochs. Every model was trained twice with different seeds,
 and differences between runs are reported as the noise baseline for any
 comparison. Package versions are pinned in `requirements.txt` and
 `requirements-gpu.txt`, and `pytest` runs 32 unit tests covering the token
-features, masking, windowing, inference and baselines.
+features, masking, windowing, inference, baselines and the stick-figure kinematics.
 
 Evaluation. Statistics are at the level of participants, not windows or
 trials: bootstrap confidence intervals over participants, exact McNemar tests,
