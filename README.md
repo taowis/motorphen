@@ -32,10 +32,21 @@ this model). All six stroke survivors had a flag on the paretic side, but five
 also had one on the non-paretic side, which is why the paretic side is not
 identified reliably (E2).
 
+The panel below is a selected example and is kept apart from the random draw.
+It shows the case the method is meant for: every flagged joint is on the
+paretic side, and the reconstruction raises peak knee flexion of the paretic
+leg in swing from 31° to 57° in this cycle. TVC27 was chosen by a fixed rule as the stroke survivor with the highest
+share of trials in which all flags were on the paretic side (3 of 3 trials);
+across all 147 stroke trials this happened in 19 (13%).
+
+<p align="center">
+  <img src="docs/images/motorphen-demo-selected.png" alt="Selected example: stroke survivor TVC27, right side paretic, with the right hip and right knee flagged and reconstructed." width="60%">
+</p>
+
 Poses are rebuilt from the Plug-in Gait segment frames by forward kinematics,
 with the reconstructed joint angles swapped in (`src/motorphen/skeleton.py`).
-The figure is made by `scripts/10_make_demo_figure.py`, and the cases are listed
-in `results/demo/demo_cases.tsv`.
+Both figures are made by `scripts/10_make_demo_figure.py` (the selected one with
+`--select-paretic-only`), and the cases are listed in `results/demo/`.
 
 ## Status
 
