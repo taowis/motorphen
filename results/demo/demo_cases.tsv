@@ -1,0 +1,9 @@
+group	subject	segment	trial	paretic	flagged	frames_30hz
+healthy	SUBJ51	291	SUBJ51 (1).c3d		neck;l_hip	20;27;33;40;46;53
+healthy	SUBJ80	384	SUBJ80 (1).c3d		l_hip	18;24;29;35;40;46
+stroke	TVC03	450	BWA6.c3d	right	neck;r_knee	11;21;32;42;53;63
+stroke	TVC04	453	BWA_6.c3d	left	r_hip;l_hip	18;24;30;36;42;48
+stroke	TVC06	459	BWA_2.c3d	left	r_hip;l_hip	6;14;22;31;39;47
+stroke	TVC12	474	BWA1.c3d	right	r_hip;l_hip	18;28;37;47;56;66
+stroke	TVC16	486	BWA3.c3d	left	l_hip;r_knee	8;17;26;34;43;52
+stroke	TVC19	492	BWA3.c3d	left	r_knee;l_hip	21;30;39;47;56;65
