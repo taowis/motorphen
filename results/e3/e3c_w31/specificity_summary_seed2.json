@@ -1,0 +1,64 @@
+{
+ "tag": "seed2",
+ "k": 2,
+ "floor_quantile": 0.99,
+ "n_test_subjects": 17,
+ "results": {
+  "floor/pelvis_flex": {
+   "mean": -0.007520462724439044,
+   "ci_low": -0.015271219692905787,
+   "ci_high": -0.0007403824776040281,
+   "equivalent": true,
+   "n": 17
+  },
+  "floor/r_hip_abd": {
+   "mean": 0.03192354241772467,
+   "ci_low": -0.019897030265505638,
+   "ci_high": 0.12067170205234767,
+   "equivalent": true,
+   "n": 17
+  },
+  "floor/r_hip_flex": {
+   "mean": -0.024558446816969816,
+   "ci_low": -0.053475409402666686,
+   "ci_high": 0.0016842297093841798,
+   "equivalent": true,
+   "n": 17
+  },
+  "floor/r_knee_flex": {
+   "mean": -0.4583373517928595,
+   "ci_low": -1.0070091410938786,
+   "ci_high": 0.012024975374947974,
+   "equivalent": true,
+   "n": 17
+  },
+  "topk/pelvis_flex": {
+   "mean": 0.00017661923442949747,
+   "ci_low": -0.01372211424401058,
+   "ci_high": 0.014465165146985814,
+   "equivalent": true,
+   "n": 17
+  },
+  "topk/r_hip_abd": {
+   "mean": 0.028578252138273724,
+   "ci_low": -0.04680849497609586,
+   "ci_high": 0.1482734448472768,
+   "equivalent": true,
+   "n": 17
+  },
+  "topk/r_hip_flex": {
+   "mean": -0.07330154159633573,
+   "ci_low": -0.13541215070865537,
+   "ci_high": -0.021057182168348353,
+   "equivalent": true,
+   "n": 17
+  },
+  "topk/r_knee_flex": {
+   "mean": -0.9508712759595499,
+   "ci_low": -1.7103098931750256,
+   "ci_high": -0.16727412426120306,
+   "equivalent": false,
+   "n": 17
+  }
+ }
+}
