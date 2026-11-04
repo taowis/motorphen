@@ -94,6 +94,30 @@ and paired comparison of AUROCs by bootstrap and DeLong's test against simple
 clinical rules and deviation-from-normal baselines (`src/motorphen/baselines.py`,
 `scripts/09_compare_auroc_e2.py`).
 
+## Trained models
+
+The two E1 models (7-frame window, 110 training participants, seeds 1 and 2)
+are attached to the GitHub release
+[v0.0.1](https://github.com/taowis/motorphen/releases/tag/v0.0.1) as
+`motorphen_e1_seed1.pt` and `motorphen_e1_seed2.pt` (40 MB each, SHA-256 sums in
+the release notes). Each file holds the `state_dict` and the run record:
+
+```python
+import torch
+from motorphen.model import GaitMAE
+
+ck = torch.load("motorphen_e1_seed1.pt", map_location="cpu", weights_only=False)
+model = GaitMAE()
+model.load_state_dict(ck["model"])
+model.eval()
+```
+
+Scoring also needs the range of motion and noise floor used here,
+`results/e1/rom_deg.tsv` and `results/e1/noise_floor_seed<N>.tsv`, and the
+normative mean for evaluation, `results/e1/normative_mean.tsv`. The models were
+trained on marker-based Plug-in Gait angles resampled to 30 Hz and have not been
+tested on markerless input. They are research models, not for clinical use.
+
 ## Layout
 
 - `src/motorphen/` package code
