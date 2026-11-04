@@ -43,10 +43,21 @@ across all 147 stroke trials this happened in 19 (13%).
   <img src="docs/images/motorphen-demo-selected.png" alt="Selected example: stroke survivor TVC27, right side paretic, with the right hip and right knee flagged and reconstructed." width="60%">
 </p>
 
+The same two kinds of case as animations of a whole walking trial, played at
+half speed. Left, the selected example TVC27, with flags only on the paretic
+(right) leg. Right, TVC04 from the random draw: the paretic side is the left,
+but both hips are flagged and the reconstruction changes both legs.
+
+<p align="center">
+  <img src="docs/images/motorphen-anim-TVC27.gif" alt="Animation of stroke survivor TVC27 walking, selected example: right hip and knee flagged, reconstruction in blue over the recorded pose in grey." width="45%">
+  <img src="docs/images/motorphen-anim-TVC04.gif" alt="Animation of stroke survivor TVC04 walking, from the random draw: both hips flagged, reconstruction in blue over the recorded pose in grey." width="45%">
+</p>
+
 Poses are rebuilt from the Plug-in Gait segment frames by forward kinematics,
 with the reconstructed joint angles swapped in (`src/motorphen/skeleton.py`).
-Both figures are made by `scripts/10_make_demo_figure.py` (the selected one with
-`--select-paretic-only`), and the cases are listed in `results/demo/`.
+The figures are made by `scripts/10_make_demo_figure.py` (the selected one with
+`--select-paretic-only`, the animations with `--animate TVC27 TVC04`), and the
+cases are listed in `results/demo/`.
 
 ## Status
 
