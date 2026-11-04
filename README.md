@@ -38,3 +38,8 @@ Details the paper leaves open are our choices, listed in
 - `results/` small summary outputs
 
 No patient data goes into this repository.
+
+## License
+
+Code is released under the MIT License (`LICENSE`). The gait data are not part of
+this repository; see `data/README.md` for their source and licence.
