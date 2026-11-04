@@ -2,6 +2,7 @@
 
 Usage: .venv/bin/python scripts/10_make_demo_figure.py [--tag seed1] [--seed 0]
        .venv/bin/python scripts/10_make_demo_figure.py --select-paretic-only
+       .venv/bin/python scripts/10_make_demo_figure.py --animate TVC27 TVC04
 
 Two held-out healthy adults and six stroke survivors are drawn at random with a
 fixed seed, not chosen for the result. For each, the first full-body walking
@@ -17,6 +18,11 @@ one with the highest share of trials (run 1, results/e2/flags_stroke.tsv) in
 which every flagged joint is on the paretic side, ties broken by subject ID.
 Writes docs/images/motorphen-demo-selected.png and
 results/demo/demo_selected.tsv.
+
+With --animate, the whole first walking segment of each named participant is
+drawn frame by frame at half speed (15 frames per second for 30 Hz data) to
+docs/images/motorphen-anim-<subject>.gif. Each GIF says whether the participant
+is the selected example or comes from the random draw.
 """
 
 import argparse
@@ -27,6 +33,7 @@ import ezc3d
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation, PillowWriter
 import numpy as np
 import pandas as pd
 import torch
@@ -82,12 +89,43 @@ def draw(ax, P, color, lw, x0, flagged_edges=()):
     ax.scatter(xy[:, 0] + x0, xy[:, 1], s=6, color=color, zorder=4, linewidths=0)
 
 
+def animate(cs, title, flagged, out, T, fps=15):
+    """GIF of one walking segment, from the first reconstructed frame to the end."""
+    fig, ax = plt.subplots(figsize=(4.4, 5.0))
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.86, bottom=0.14)
+    handles = [plt.Line2D([], [], color=c, lw=2) for c in (GREY, BLUE, RED)]
+
+    def frame(k):
+        ax.cla()
+        P0, P1 = cs["poses"](k)
+        ax.plot([-0.9, 0.9], [0, 0], color="#dddddd", lw=1, zorder=1)
+        draw(ax, P0, GREY, 2.2, 0)
+        draw(ax, P1, BLUE, 2.2, 0, cs["red"])
+        ax.set_xlim(-0.9, 0.9)
+        ax.set_ylim(-0.08, 1.9)
+        ax.set_aspect("equal")
+        ax.axis("off")
+        ax.set_title(title, fontsize=10, fontweight="bold")
+        ax.text(0.5, -0.02, flagged, transform=ax.transAxes, ha="center", va="top", fontsize=9.5)
+        ax.text(0.99, 0.99, f"{(k - T + 1) / 30:.2f} s, half speed", transform=ax.transAxes,
+                ha="right", va="top", fontsize=7.5, color="#777777")
+
+    fig.legend(handles, ["original", "reconstruction", "flagged"], loc="lower center",
+               ncol=3, frameon=False, fontsize=8.5)
+    anim = FuncAnimation(fig, frame, frames=range(T - 1, cs["n"]), interval=1000 / fps)
+    anim.save(out, writer=PillowWriter(fps=fps), dpi=90)
+    plt.close(fig)
+    print(out, os.path.getsize(out) // 1024, "kB,", cs["n"] - T + 1, "frames")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default="seed1")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--azimuth", type=float, default=35.0, help="view, degrees from the side")
     ap.add_argument("--select-paretic-only", action="store_true")
+    ap.add_argument("--animate", nargs="+", metavar="SUBJECT",
+                    help="write a GIF of the first walking segment of each subject")
     args = ap.parse_args()
     memcap.start(4.0)
     dev = torch.device("cpu")
@@ -112,7 +150,9 @@ def main():
     healthy = sorted(full[(full.group == "healthy") & (full.subject.map(split) == "test")].subject.unique())
     stroke = sorted(full[(full.group == "stroke") &
                          full.subject.map(meta.paretic).isin(["left", "right"])].subject.unique())
-    if args.select_paretic_only:
+    if args.animate:
+        chosen, axes = [], np.array([])
+    elif args.select_paretic_only:
         chosen = [("stroke", paretic_only_subject(args.tag))]
         out, cases = "docs/images/motorphen-demo-selected.png", "results/demo/demo_selected.tsv"
         fig, ax = plt.subplots(1, 1, figsize=(8, 3.1))
@@ -123,8 +163,7 @@ def main():
                   [("stroke", s) for s in sorted(rng.choice(stroke, 6, replace=False))])
         out, cases = "docs/images/motorphen-demo.png", "results/demo/demo_cases.tsv"
         fig, axes = plt.subplots(4, 2, figsize=(16, 11.6))
-    rows = []
-    for ax, (group, subj) in zip(axes.T.ravel(), chosen):
+    def case(group, subj):
         r = full[full.subject == subj].sort_values("segment").iloc[0]
         A = z["angles"][r.start:r.start + r.length].astype(np.float64)
         x = torch.tensor(np.deg2rad(A), dtype=torch.float32)
@@ -139,11 +178,6 @@ def main():
         frames = skeleton.segment_frames(c["data"]["points"], _labels(c["parameters"]["POINT"]))
         centres = skeleton.fit(frames)
 
-        T = model.T
-        st = [k for k in strikes.get(r.segment, []) if k >= T - 1]
-        k0, k1 = (st[0], st[2]) if len(st) >= 3 else (T - 1, min(T - 1 + 30, r.length - 1))
-        ks = np.linspace(k0, k1, 6).round().astype(int)
-
         o = frames["PEL"][1][s0:s0 + int(r.length * rate / 30)]
         d = o[-1] - o[0]
         d[2] = 0
@@ -152,24 +186,62 @@ def main():
         az = np.deg2rad(args.azimuth)
         screen = np.cos(az) * d + np.sin(az) * lat
 
-        red = [e for n in names for e in skeleton.FLAG_EDGES.get(n, [])]
-        for i, k in enumerate(ks):
+        def poses(k):
+            """Projected original and reconstructed points at 30 Hz frame k, in metres,
+            centred on the original mid-hip."""
             t = s0 + int(round(k * rate / 30))
             P0 = skeleton.points(*skeleton.pose(frames, centres, t), centres)
             P1 = skeleton.points(*skeleton.pose(frames, centres, t, np.deg2rad(A[k]), rec[k]), centres)
             mid = P0["mid_hip"] @ screen
             proj = lambda P: {n: np.array([(p @ screen - mid) / 1000, p[2] / 1000]) for n, p in P.items()}
-            draw(ax, proj(P0), GREY, 1.6, i * GAP)
-            draw(ax, proj(P1), BLUE, 1.6, i * GAP, red)
+            return proj(P0), proj(P1)
+
+        red = [e for n in names for e in skeleton.FLAG_EDGES.get(n, [])]
+        return dict(r=r, names=names, red=red, poses=poses, n=int(r.length))
+
+    def title_of(group, subj):
         if group == "healthy":
-            title = f"{subj}  ·  healthy adult, held out"
-        else:
-            title = f"{subj}  ·  stroke, {meta.loc[subj, 'paretic']} side paretic"
-            if args.select_paretic_only:
-                title += "  ·  selected example, not random"
+            return f"{subj}  ·  healthy adult, held out"
+        return f"{subj}  ·  stroke, {meta.loc[subj, 'paretic']} side paretic"
+
+    def flagged_text(names):
+        return "flagged: " + (", ".join(NAMES[n] for n in names) if names else "none")
+
+    if args.animate:
+        rng = np.random.default_rng(args.seed)
+        rng.choice(healthy, 2, replace=False)
+        random_stroke = set(rng.choice(stroke, 6, replace=False))
+        selected = paretic_only_subject(args.tag)
+        for subj in args.animate:
+            group = "stroke" if subj in stroke else "healthy"
+            cs = case(group, subj)
+            if subj == selected:
+                origin = "selected example, not random"
+            elif subj in random_stroke:
+                origin = "from the random draw"
+            else:
+                origin = "chosen by hand"
+            animate(cs, f"{title_of(group, subj)}\n{origin}", flagged_text(cs["names"]),
+                    f"docs/images/motorphen-anim-{subj}.gif", model.T)
+        return
+
+    rows = []
+    for ax, (group, subj) in zip(axes.T.ravel(), chosen):
+        cs = case(group, subj)
+        r, names, red = cs["r"], cs["names"], cs["red"]
+        T = model.T
+        st = [k for k in strikes.get(r.segment, []) if k >= T - 1]
+        k0, k1 = (st[0], st[2]) if len(st) >= 3 else (T - 1, min(T - 1 + 30, r.length - 1))
+        ks = np.linspace(k0, k1, 6).round().astype(int)
+        for i, k in enumerate(ks):
+            P0, P1 = cs["poses"](k)
+            draw(ax, P0, GREY, 1.6, i * GAP)
+            draw(ax, P1, BLUE, 1.6, i * GAP, red)
+        title = title_of(group, subj)
+        if args.select_paretic_only:
+            title += "  ·  selected example, not random"
         ax.set_title(title, fontsize=11, fontweight="bold")
-        label = ", ".join(NAMES[n] for n in names) if names else "none"
-        ax.text(0.5, -0.06, f"flagged: {label}", transform=ax.transAxes, ha="center", fontsize=10.5)
+        ax.text(0.5, -0.06, flagged_text(names), transform=ax.transAxes, ha="center", fontsize=10.5)
         ax.set_xlim(-0.55, 5 * GAP + 0.55)
         ax.set_ylim(-0.05, 1.95)
         ax.set_aspect("equal")
