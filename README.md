@@ -14,6 +14,29 @@ The model design follows GenGait, the masked autoencoder approach described by
 Motta et al. [1]. Their code and data are not public; this is an independent
 reimplementation from the published description, not their software.
 
+## Demo
+
+<p align="center">
+  <img src="docs/images/motorphen-demo.png" alt="Stick figures of two held-out healthy adults and six stroke survivors over one gait cycle: recorded pose in grey, normative reconstruction in blue, flagged joints in red." width="100%">
+</p>
+
+Flagged joints and their normative reconstruction with the released run 1
+model, drawn in the style of the qualitative figure in the GenGait article [1],
+which used simulated gait abnormalities. Grey is the recorded pose, blue the
+reconstruction and red the flagged joints (at most two above the noise floor);
+six frames span one gait cycle. Two held-out healthy adults and six stroke
+survivors were drawn at random (seed 0), not chosen for the result, and each
+panel shows the participant's first full-body walking trial. Both healthy
+adults happened to be flagged (44% of the 48 held-out trials were flagged with
+this model). All six stroke survivors had a flag on the paretic side, but five
+also had one on the non-paretic side, which is why the paretic side is not
+identified reliably (E2).
+
+Poses are rebuilt from the Plug-in Gait segment frames by forward kinematics,
+with the reconstructed joint angles swapped in (`src/motorphen/skeleton.py`).
+The figure is made by `scripts/10_make_demo_figure.py`, and the cases are listed
+in `results/demo/demo_cases.tsv`.
+
 ## Status
 
 The reimplementation has been trained on 110 able-bodied adults from a public
@@ -85,7 +108,7 @@ and peak memory, plus a per-epoch log of every loss term (`results/*/run_*.json`
 comparable across epochs. Every model was trained twice with different seeds,
 and differences between runs are reported as the noise baseline for any
 comparison. Package versions are pinned in `requirements.txt` and
-`requirements-gpu.txt`, and `pytest` runs 29 unit tests covering the token
+`requirements-gpu.txt`, and `pytest` runs 32 unit tests covering the token
 features, masking, windowing, inference and baselines.
 
 Evaluation. Statistics are at the level of participants, not windows or
