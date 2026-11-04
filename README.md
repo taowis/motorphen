@@ -1,4 +1,8 @@
-# motorphen
+# MotorPhen
+
+<p align="center">
+  <img src="docs/images/motorphen-hero.svg" alt="MotorPhen. Four scenes: each of six joints is withheld in turn and predicted from the others, and a knee above the healthy noise floor is flagged; a paretic knee curve is reconstructed towards the normative range; in 17 held-out healthy adults all four reported angles stay within 1.5 degrees while 21 and 15 of 48 trials are flagged; the paretic side of 50 stroke survivors is found with AUROC 0.54 and 0.62 by the model and 0.84 by a knee flexion rule." width="100%">
+</p>
 
 Motor phenotyping from markerless gait recordings. The aim is a small, open
 implementation of a normative gait model: train on healthy walking, score each
@@ -36,6 +40,9 @@ Details the paper leaves open are our choices, listed in
 - `docs/` design notes
 - `data/` see `data/README.md`; raw data is not committed
 - `results/` small summary outputs
+
+The figure at the top is built by `scripts/make_readme_figure.py` from the
+numbers in the results READMEs; its curves and token scores are illustrative.
 
 No patient data goes into this repository.
 
