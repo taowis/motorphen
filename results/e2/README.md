@@ -71,6 +71,32 @@ mean, as the paper reported for simulated gait. Read with E1: the same
 operation also moves healthy knees towards the mean when forced, so a lower
 RMSE to the mean is not by itself evidence of correct localisation.
 
+## Paired AUROC comparison (added 2026-11-04)
+
+scripts/09_compare_auroc_e2.py on the Mac (about 4 min), from `side_scores.tsv` only.
+Difference in AUROC (second minus first) on the same 50 subjects: paired bootstrap over
+subjects (10,000 resamples, generator seed 20261104), 95% CI and two-sided P; and
+DeLong's test for correlated ROC curves.
+
+| Comparison | AUROC | Difference [95% CI] | P bootstrap | P DeLong |
+|---|---|---|---|---|
+| B4 clinical rule vs model seed 1 | 0.84 vs 0.54 | +0.30 [+0.06, +0.53] | 0.014 | 0.013 |
+| B4 clinical rule vs model seed 2 | 0.84 vs 0.62 | +0.22 [-0.01, +0.44] | 0.061 | 0.060 |
+| B1 z-score vs model seed 1 | 0.43 vs 0.54 | -0.11 [-0.29, +0.08] | 0.25 | 0.25 |
+| B1 z-score vs model seed 2 | 0.43 vs 0.62 | -0.19 [-0.40, +0.02] | 0.077 | 0.084 |
+| B2 RMSE vs model seed 1 | 0.47 vs 0.54 | -0.07 [-0.25, +0.11] | 0.44 | 0.42 |
+| B2 RMSE vs model seed 2 | 0.47 vs 0.62 | -0.16 [-0.37, +0.06] | 0.17 | 0.16 |
+| B3 PCA vs model seed 1 | 0.54 vs 0.54 | -0.00 [-0.22, +0.22] | 0.99 | 0.98 |
+| B3 PCA vs model seed 2 | 0.54 vs 0.62 | -0.09 [-0.31, +0.14] | 0.46 | 0.46 |
+| Model seed 2 vs seed 1 | 0.62 vs 0.54 | +0.08 [-0.08, +0.25] | 0.33 | 0.33 |
+
+- The two methods agree. The clinical rule is better than seed 1 (P = 0.014) and
+  better than seed 2 by 0.22 with P = 0.06; with 50 subjects the second difference is
+  not significant at 0.05. This matches the McNemar results on accuracy above.
+- The two seeds do not differ significantly from each other, and the model does not
+  differ significantly from the deviation-from-normal baselines B1 to B3.
+- Files: `auroc_comparison.tsv`, `auroc_comparison.json`. Test: tests/test_auroc_compare.py.
+
 ## Files
 
 `side_scores.tsv` (per subject, every method and side), `flags_stroke.tsv`
