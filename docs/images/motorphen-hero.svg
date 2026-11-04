@@ -1,0 +1,450 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="1280" height="480" role="img" aria-labelledby="t d">
+  <title id="t">MotorPhen</title>
+  <desc id="d">Four scenes. 1: a walking figure; each of six joints (neck, pelvis, hips, knees) is withheld in turn from a 7-frame window and predicted from the others, and the knee, whose error exceeds the healthy noise floor, is flagged. 2: a paretic knee flexion curve is reconstructed towards the normative range; in 50 stroke survivors reconstruction moved paretic hip and knee towards the normative mean in 8 of 8 comparisons. 3: in 17 held-out healthy adults all four reported angles stayed within 1.5 degrees, yet 21 and 15 of 48 trials were flagged in the two runs. 4: the paretic side was identified with AUROC 0.54 and 0.62 by the model and 0.84 by the side with lower peak knee flexion in swing; no other setting averaged above 0.66.</desc>
+  <style>
+.sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.rise{animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}.d1{animation-delay:.25s}.d2{animation-delay:.5s}@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.prog{transform-origin:0 0;animation:prog 32.0s linear infinite}@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.caret{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.k1{opacity:0;animation:k1 32.0s linear infinite}@keyframes k1{0%,0.00%{opacity:0}0.62%,24.06%{opacity:1}24.69%,100%{opacity:0}}
+.ty2{animation:ty2 32.0s steps(38) infinite}@keyframes ty2{0%,1.56%{transform:translateX(0)}6.91%,100%{transform:translateX(410.4px)}}
+.k3{opacity:0;animation:k3 32.0s linear infinite}@keyframes k3{0%,25.00%{opacity:0}25.62%,49.06%{opacity:1}49.69%,100%{opacity:0}}
+.ty4{animation:ty4 32.0s steps(47) infinite}@keyframes ty4{0%,26.56%{transform:translateX(0)}33.17%,100%{transform:translateX(507.6px)}}
+.k5{opacity:0;animation:k5 32.0s linear infinite}@keyframes k5{0%,50.00%{opacity:0}50.62%,74.06%{opacity:1}74.69%,100%{opacity:0}}
+.ty6{animation:ty6 32.0s steps(40) infinite}@keyframes ty6{0%,51.56%{transform:translateX(0)}57.19%,100%{transform:translateX(432.0px)}}
+.k7{opacity:0;animation:k7 32.0s linear infinite}@keyframes k7{0%,75.00%{opacity:0}75.62%,99.06%{opacity:1}99.69%,100%{opacity:0}}
+.ty8{animation:ty8 32.0s steps(37) infinite}@keyframes ty8{0%,76.56%{transform:translateX(0)}81.77%,100%{transform:translateX(399.6px)}}
+.s0{opacity:0;animation:s0 32.0s linear infinite}@keyframes s0{0%,0.00%{opacity:0}0.47%,24.06%{opacity:1}25.16%,100%{opacity:0}}
+.thigh{animation:thigh 1.2s linear infinite;transform-box:view-box}@keyframes thigh{0%{transform:rotate(-24deg)}60%{transform:rotate(20deg)}100%{transform:rotate(-24deg)}}.shank{animation:shank 1.2s linear infinite;transform-box:view-box}@keyframes shank{0%{transform:rotate(3deg)}15%{transform:rotate(16deg)}40%{transform:rotate(5deg)}62%{transform:rotate(42deg)}74%{transform:rotate(60deg)}90%{transform:rotate(12deg)}100%{transform:rotate(3deg)}}.uarm{animation:uarm 1.2s ease-in-out infinite;transform-box:view-box}@keyframes uarm{0%,100%{transform:rotate(18deg)}50%{transform:rotate(-18deg)}}.farm{animation:farm 1.2s ease-in-out infinite;transform-box:view-box}@keyframes farm{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(-30deg)}}.far{animation-delay:-.6s}.bob{animation:bob .6s ease-in-out infinite}@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.k10{opacity:0;animation:k10 32.0s linear infinite}@keyframes k10{0%,14.53%{opacity:0}15.62%,24.06%{opacity:1}25.16%,100%{opacity:0}}
+.k11{opacity:0;animation:k11 32.0s linear infinite}@keyframes k11{0%,2.34%{opacity:0}2.81%,5.16%{opacity:1}5.62%,100%{opacity:0}}
+.g12{animation:g12 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:0% 50%}@keyframes g12{0%,4.38%{transform:scaleX(0);opacity:1}6.25%,24.06%{transform:scaleX(1);opacity:1}25.16%,100%{transform:scaleX(1);opacity:0}}
+.k13{opacity:0;animation:k13 32.0s linear infinite}@keyframes k13{0%,5.00%{opacity:0}5.47%,7.81%{opacity:1}8.28%,100%{opacity:0}}
+.g14{animation:g14 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:0% 50%}@keyframes g14{0%,7.03%{transform:scaleX(0);opacity:1}8.91%,24.06%{transform:scaleX(1);opacity:1}25.16%,100%{transform:scaleX(1);opacity:0}}
+.k15{opacity:0;animation:k15 32.0s linear infinite}@keyframes k15{0%,7.66%{opacity:0}8.12%,10.47%{opacity:1}10.94%,100%{opacity:0}}
+.g16{animation:g16 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:0% 50%}@keyframes g16{0%,9.69%{transform:scaleX(0);opacity:1}11.56%,24.06%{transform:scaleX(1);opacity:1}25.16%,100%{transform:scaleX(1);opacity:0}}
+.k17{opacity:0;animation:k17 32.0s linear infinite}@keyframes k17{0%,10.31%{opacity:0}10.78%,13.12%{opacity:1}13.59%,100%{opacity:0}}
+.g18{animation:g18 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:0% 50%}@keyframes g18{0%,12.34%{transform:scaleX(0);opacity:1}14.22%,24.06%{transform:scaleX(1);opacity:1}25.16%,100%{transform:scaleX(1);opacity:0}}
+.k19{opacity:0;animation:k19 32.0s linear infinite}@keyframes k19{0%,12.97%{opacity:0}13.44%,15.78%{opacity:1}16.25%,100%{opacity:0}}
+.g20{animation:g20 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:0% 50%}@keyframes g20{0%,15.00%{transform:scaleX(0);opacity:1}16.88%,24.06%{transform:scaleX(1);opacity:1}25.16%,100%{transform:scaleX(1);opacity:0}}
+.k21{opacity:0;animation:k21 32.0s linear infinite}@keyframes k21{0%,15.62%{opacity:0}16.09%,18.44%{opacity:1}18.91%,100%{opacity:0}}
+.g22{animation:g22 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:0% 50%}@keyframes g22{0%,17.66%{transform:scaleX(0);opacity:1}19.53%,24.06%{transform:scaleX(1);opacity:1}25.16%,100%{transform:scaleX(1);opacity:0}}
+.s1{opacity:0;animation:s1 32.0s linear infinite}@keyframes s1{0%,24.38%{opacity:0}25.47%,49.06%{opacity:1}50.16%,100%{opacity:0}}
+.k24{opacity:0;animation:k24 32.0s linear infinite}@keyframes k24{0%,25.47%{opacity:0}26.56%,49.06%{opacity:1}50.16%,100%{opacity:0}}
+.d25{stroke-dasharray:1;animation:d25 32.0s ease-in-out infinite}@keyframes d25{0%,27.81%{stroke-dashoffset:1;opacity:1}33.44%,49.06%{stroke-dashoffset:0;opacity:1}50.16%,100%{stroke-dashoffset:0;opacity:0}}
+.d26{stroke-dasharray:1;animation:d26 32.0s ease-in-out infinite}@keyframes d26{0%,34.38%{stroke-dashoffset:1;opacity:1}40.00%,49.06%{stroke-dashoffset:0;opacity:1}50.16%,100%{stroke-dashoffset:0;opacity:0}}
+.k27{opacity:0;animation:k27 32.0s linear infinite}@keyframes k27{0%,28.91%{opacity:0}30.00%,49.06%{opacity:1}50.16%,100%{opacity:0}}
+.k28{opacity:0;animation:k28 32.0s linear infinite}@keyframes k28{0%,35.78%{opacity:0}36.88%,49.06%{opacity:1}50.16%,100%{opacity:0}}
+.k29{opacity:0;animation:k29 32.0s linear infinite}@keyframes k29{0%,38.91%{opacity:0}40.00%,49.06%{opacity:1}50.16%,100%{opacity:0}}
+.s2{opacity:0;animation:s2 32.0s linear infinite}@keyframes s2{0%,49.38%{opacity:0}50.47%,74.06%{opacity:1}75.16%,100%{opacity:0}}
+.g31{animation:g31 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g31{0%,52.50%{transform:scaleX(0);opacity:1}54.06%,74.06%{transform:scaleX(1);opacity:1}75.16%,100%{transform:scaleX(1);opacity:0}}
+.p32{animation:p32 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p32{0%,53.12%{opacity:0;transform:scale(.4)}54.06%{opacity:1;transform:scale(1.25)}55.00%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.g33{animation:g33 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g33{0%,52.97%{transform:scaleX(0);opacity:1}54.53%,74.06%{transform:scaleX(1);opacity:1}75.16%,100%{transform:scaleX(1);opacity:0}}
+.p34{animation:p34 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p34{0%,53.59%{opacity:0;transform:scale(.4)}54.53%{opacity:1;transform:scale(1.25)}55.47%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.g35{animation:g35 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g35{0%,53.59%{transform:scaleX(0);opacity:1}55.16%,74.06%{transform:scaleX(1);opacity:1}75.16%,100%{transform:scaleX(1);opacity:0}}
+.p36{animation:p36 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p36{0%,54.22%{opacity:0;transform:scale(.4)}55.16%{opacity:1;transform:scale(1.25)}56.09%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.g37{animation:g37 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g37{0%,54.06%{transform:scaleX(0);opacity:1}55.62%,74.06%{transform:scaleX(1);opacity:1}75.16%,100%{transform:scaleX(1);opacity:0}}
+.p38{animation:p38 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p38{0%,54.69%{opacity:0;transform:scale(.4)}55.62%{opacity:1;transform:scale(1.25)}56.56%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.g39{animation:g39 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g39{0%,54.69%{transform:scaleX(0);opacity:1}56.25%,74.06%{transform:scaleX(1);opacity:1}75.16%,100%{transform:scaleX(1);opacity:0}}
+.p40{animation:p40 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p40{0%,55.31%{opacity:0;transform:scale(.4)}56.25%{opacity:1;transform:scale(1.25)}57.19%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.g41{animation:g41 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g41{0%,55.16%{transform:scaleX(0);opacity:1}56.72%,74.06%{transform:scaleX(1);opacity:1}75.16%,100%{transform:scaleX(1);opacity:0}}
+.p42{animation:p42 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p42{0%,55.78%{opacity:0;transform:scale(.4)}56.72%{opacity:1;transform:scale(1.25)}57.66%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.g43{animation:g43 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g43{0%,55.78%{transform:scaleX(0);opacity:1}57.34%,74.06%{transform:scaleX(1);opacity:1}75.16%,100%{transform:scaleX(1);opacity:0}}
+.p44{animation:p44 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p44{0%,56.41%{opacity:0;transform:scale(.4)}57.34%{opacity:1;transform:scale(1.25)}58.28%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.g45{animation:g45 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g45{0%,56.25%{transform:scaleX(0);opacity:1}57.81%,74.06%{transform:scaleX(1);opacity:1}75.16%,100%{transform:scaleX(1);opacity:0}}
+.p46{animation:p46 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p46{0%,56.88%{opacity:0;transform:scale(.4)}57.81%{opacity:1;transform:scale(1.25)}58.75%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p47{animation:p47 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p47{0%,55.62%{opacity:0;transform:scale(.4)}56.56%{opacity:1;transform:scale(1.25)}57.50%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p48{animation:p48 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p48{0%,55.81%{opacity:0;transform:scale(.4)}56.75%{opacity:1;transform:scale(1.25)}57.69%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p49{animation:p49 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p49{0%,56.00%{opacity:0;transform:scale(.4)}56.94%{opacity:1;transform:scale(1.25)}57.88%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p50{animation:p50 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p50{0%,56.19%{opacity:0;transform:scale(.4)}57.12%{opacity:1;transform:scale(1.25)}58.06%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p51{animation:p51 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p51{0%,56.38%{opacity:0;transform:scale(.4)}57.31%{opacity:1;transform:scale(1.25)}58.25%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p52{animation:p52 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p52{0%,56.56%{opacity:0;transform:scale(.4)}57.50%{opacity:1;transform:scale(1.25)}58.44%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p53{animation:p53 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p53{0%,56.75%{opacity:0;transform:scale(.4)}57.69%{opacity:1;transform:scale(1.25)}58.63%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p54{animation:p54 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p54{0%,56.94%{opacity:0;transform:scale(.4)}57.88%{opacity:1;transform:scale(1.25)}58.81%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p55{animation:p55 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p55{0%,57.12%{opacity:0;transform:scale(.4)}58.06%{opacity:1;transform:scale(1.25)}59.00%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p56{animation:p56 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p56{0%,57.31%{opacity:0;transform:scale(.4)}58.25%{opacity:1;transform:scale(1.25)}59.19%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p57{animation:p57 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p57{0%,57.50%{opacity:0;transform:scale(.4)}58.44%{opacity:1;transform:scale(1.25)}59.38%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p58{animation:p58 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p58{0%,57.69%{opacity:0;transform:scale(.4)}58.63%{opacity:1;transform:scale(1.25)}59.56%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p59{animation:p59 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p59{0%,57.88%{opacity:0;transform:scale(.4)}58.81%{opacity:1;transform:scale(1.25)}59.75%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p60{animation:p60 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p60{0%,58.06%{opacity:0;transform:scale(.4)}59.00%{opacity:1;transform:scale(1.25)}59.94%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p61{animation:p61 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p61{0%,58.25%{opacity:0;transform:scale(.4)}59.19%{opacity:1;transform:scale(1.25)}60.13%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p62{animation:p62 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p62{0%,58.44%{opacity:0;transform:scale(.4)}59.38%{opacity:1;transform:scale(1.25)}60.31%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p63{animation:p63 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p63{0%,58.63%{opacity:0;transform:scale(.4)}59.56%{opacity:1;transform:scale(1.25)}60.50%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p64{animation:p64 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p64{0%,58.81%{opacity:0;transform:scale(.4)}59.75%{opacity:1;transform:scale(1.25)}60.69%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p65{animation:p65 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p65{0%,59.00%{opacity:0;transform:scale(.4)}59.94%{opacity:1;transform:scale(1.25)}60.88%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p66{animation:p66 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p66{0%,59.19%{opacity:0;transform:scale(.4)}60.13%{opacity:1;transform:scale(1.25)}61.06%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p67{animation:p67 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p67{0%,59.38%{opacity:0;transform:scale(.4)}60.31%{opacity:1;transform:scale(1.25)}61.25%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p68{animation:p68 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p68{0%,60.63%{opacity:0;transform:scale(.4)}61.56%{opacity:1;transform:scale(1.25)}62.50%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p69{animation:p69 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p69{0%,60.81%{opacity:0;transform:scale(.4)}61.75%{opacity:1;transform:scale(1.25)}62.69%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p70{animation:p70 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p70{0%,61.00%{opacity:0;transform:scale(.4)}61.94%{opacity:1;transform:scale(1.25)}62.88%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p71{animation:p71 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p71{0%,61.19%{opacity:0;transform:scale(.4)}62.13%{opacity:1;transform:scale(1.25)}63.06%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p72{animation:p72 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p72{0%,61.38%{opacity:0;transform:scale(.4)}62.31%{opacity:1;transform:scale(1.25)}63.25%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p73{animation:p73 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p73{0%,61.56%{opacity:0;transform:scale(.4)}62.50%{opacity:1;transform:scale(1.25)}63.44%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p74{animation:p74 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p74{0%,61.75%{opacity:0;transform:scale(.4)}62.69%{opacity:1;transform:scale(1.25)}63.63%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p75{animation:p75 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p75{0%,61.94%{opacity:0;transform:scale(.4)}62.88%{opacity:1;transform:scale(1.25)}63.81%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p76{animation:p76 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p76{0%,62.13%{opacity:0;transform:scale(.4)}63.06%{opacity:1;transform:scale(1.25)}64.00%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p77{animation:p77 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p77{0%,62.31%{opacity:0;transform:scale(.4)}63.25%{opacity:1;transform:scale(1.25)}64.19%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p78{animation:p78 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p78{0%,62.50%{opacity:0;transform:scale(.4)}63.44%{opacity:1;transform:scale(1.25)}64.38%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p79{animation:p79 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p79{0%,62.69%{opacity:0;transform:scale(.4)}63.63%{opacity:1;transform:scale(1.25)}64.56%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p80{animation:p80 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p80{0%,62.88%{opacity:0;transform:scale(.4)}63.81%{opacity:1;transform:scale(1.25)}64.75%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p81{animation:p81 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p81{0%,63.06%{opacity:0;transform:scale(.4)}64.00%{opacity:1;transform:scale(1.25)}64.94%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.p82{animation:p82 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p82{0%,63.25%{opacity:0;transform:scale(.4)}64.19%{opacity:1;transform:scale(1.25)}65.13%,74.06%{opacity:1;transform:scale(1)}75.16%,100%{opacity:0}}
+.k83{opacity:0;animation:k83 32.0s linear infinite}@keyframes k83{0%,63.28%{opacity:0}64.38%,74.06%{opacity:1}75.16%,100%{opacity:0}}
+.s3{opacity:0;animation:s3 32.0s linear infinite}@keyframes s3{0%,74.37%{opacity:0}75.47%,98.91%{opacity:1}100.00%,100%{opacity:0}}
+.g85{animation:g85 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g85{0%,77.50%{transform:scaleX(0);opacity:1}79.38%,98.91%{transform:scaleX(1);opacity:1}100.00%,100%{transform:scaleX(1);opacity:0}}
+.p86{animation:p86 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p86{0%,78.44%{opacity:0;transform:scale(.4)}79.38%{opacity:1;transform:scale(1.25)}80.31%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.g87{animation:g87 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g87{0%,80.31%{transform:scaleX(0);opacity:1}82.19%,98.91%{transform:scaleX(1);opacity:1}100.00%,100%{transform:scaleX(1);opacity:0}}
+.p88{animation:p88 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p88{0%,81.25%{opacity:0;transform:scale(.4)}82.19%{opacity:1;transform:scale(1.25)}83.12%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.g89{animation:g89 32.0s cubic-bezier(.3,.7,.2,1) infinite;transform-box:fill-box;transform-origin:50% 50%}@keyframes g89{0%,83.12%{transform:scaleX(0);opacity:1}85.00%,98.91%{transform:scaleX(1);opacity:1}100.00%,100%{transform:scaleX(1);opacity:0}}
+.p90{animation:p90 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p90{0%,84.06%{opacity:0;transform:scale(.4)}85.00%{opacity:1;transform:scale(1.25)}85.94%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.k91{opacity:0;animation:k91 32.0s linear infinite}@keyframes k91{0%,85.16%{opacity:0}86.25%,98.91%{opacity:1}100.00%,100%{opacity:0}}
+.p92{animation:p92 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p92{0%,86.88%{opacity:0;transform:scale(.4)}87.81%{opacity:1;transform:scale(1.25)}88.75%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p93{animation:p93 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p93{0%,87.25%{opacity:0;transform:scale(.4)}88.19%{opacity:1;transform:scale(1.25)}89.13%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p94{animation:p94 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p94{0%,87.62%{opacity:0;transform:scale(.4)}88.56%{opacity:1;transform:scale(1.25)}89.50%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p95{animation:p95 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p95{0%,88.00%{opacity:0;transform:scale(.4)}88.94%{opacity:1;transform:scale(1.25)}89.88%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p96{animation:p96 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p96{0%,88.38%{opacity:0;transform:scale(.4)}89.31%{opacity:1;transform:scale(1.25)}90.25%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p97{animation:p97 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p97{0%,88.75%{opacity:0;transform:scale(.4)}89.69%{opacity:1;transform:scale(1.25)}90.63%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p98{animation:p98 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p98{0%,89.12%{opacity:0;transform:scale(.4)}90.06%{opacity:1;transform:scale(1.25)}91.00%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p99{animation:p99 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p99{0%,89.50%{opacity:0;transform:scale(.4)}90.44%{opacity:1;transform:scale(1.25)}91.38%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p100{animation:p100 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p100{0%,89.88%{opacity:0;transform:scale(.4)}90.81%{opacity:1;transform:scale(1.25)}91.75%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p101{animation:p101 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p101{0%,90.25%{opacity:0;transform:scale(.4)}91.19%{opacity:1;transform:scale(1.25)}92.13%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.p102{animation:p102 32.0s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes p102{0%,90.62%{opacity:0;transform:scale(.4)}91.56%{opacity:1;transform:scale(1.25)}92.50%,98.91%{opacity:1;transform:scale(1)}100.00%,100%{opacity:0}}
+.k103{opacity:0;animation:k103 32.0s linear infinite}@keyframes k103{0%,90.78%{opacity:0}91.88%,98.91%{opacity:1}100.00%,100%{opacity:0}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}.s0,.s0 *{opacity:1!important}.prog{display:none}}
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1524"/><stop offset=".55" stop-color="#111d31"/><stop offset="1" stop-color="#16263d"/></linearGradient>
+    <radialGradient id="glow" cx="76%" cy="45%" r="45%"><stop offset="0" stop-color="#7fb8ff" stop-opacity=".14"/><stop offset="1" stop-color="#7fb8ff" stop-opacity="0"/></radialGradient>
+    <clipPath id="card"><rect width="1280" height="480" rx="24"/></clipPath>
+    <clipPath id="term"><rect x="92" y="300" width="560" height="54" rx="12"/></clipPath>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#7fb8ff" fill-opacity=".07"/></pattern>
+  </defs>
+  <g clip-path="url(#card)">
+    <rect width="1280" height="480" fill="url(#bg)"/><rect width="1280" height="480" fill="url(#dots)"/><rect width="1280" height="480" fill="url(#glow)"/>
+    <rect x="0" y="476" width="1280" height="4" fill="#26364f"/>
+    <rect class="prog" x="0" y="476" width="1280" height="4" fill="#ff8a65" fill-opacity=".7"/>
+  </g>
+  <rect x=".5" y=".5" width="1279" height="479" rx="24" fill="none" stroke="#26364f"/>
+  <rect x="700" y="30" width="552" height="420" rx="18" fill="#0a111d" fill-opacity=".55" stroke="#26364f"/>
+  <g class="rise"><text x="92" y="190" class="sans" font-size="104" font-weight="800" fill="#f1f5fb" text-anchor="start" letter-spacing="-3">MotorPhen</text></g>
+  <g class="rise d1"><text x="94" y="236" class="sans" font-size="24" font-weight="600" fill="#9cc3ff" text-anchor="start">A normative gait model that names the joint,</text><text x="94" y="267" class="sans" font-size="24" font-weight="600" fill="#9cc3ff" text-anchor="start">tested where the impaired side is known.</text></g>
+  <g class="rise d2">
+  <rect x="92" y="300" width="560" height="54" rx="12" fill="#0a121e" stroke="#26364f"/>
+  <text x="110" y="336" class="mono" font-size="18" font-weight="400" fill="#ff8a65" text-anchor="start">›</text>
+  <g clip-path="url(#term)">
+  <g class="k1"><text x="132" y="336" class="mono" font-size="18" font-weight="400" fill="#e4ecf7" text-anchor="start" textLength="410.4" lengthAdjust="spacingAndGlyphs">python scripts/02_train_e1.py --seed 1</text><g class="ty2"><rect x="131" y="316" width="434.4" height="28" fill="#0a121e"/><rect class="caret" x="132" y="319" width="10" height="22" rx="2" fill="#7fb8ff"/></g></g>
+  <g class="k3"><text x="132" y="336" class="mono" font-size="18" font-weight="400" fill="#e4ecf7" text-anchor="start" textLength="507.6" lengthAdjust="spacingAndGlyphs">python scripts/05_eval_e2.py --tags seed1 seed2</text><g class="ty4"><rect x="131" y="316" width="531.6" height="28" fill="#0a121e"/><rect class="caret" x="132" y="319" width="10" height="22" rx="2" fill="#7fb8ff"/></g></g>
+  <g class="k5"><text x="132" y="336" class="mono" font-size="18" font-weight="400" fill="#e4ecf7" text-anchor="start" textLength="432.0" lengthAdjust="spacingAndGlyphs">python scripts/03_eval_e1.py --tag seed1</text><g class="ty6"><rect x="131" y="316" width="456.0" height="28" fill="#0a121e"/><rect class="caret" x="132" y="319" width="10" height="22" rx="2" fill="#7fb8ff"/></g></g>
+  <g class="k7"><text x="132" y="336" class="mono" font-size="18" font-weight="400" fill="#e4ecf7" text-anchor="start" textLength="399.6" lengthAdjust="spacingAndGlyphs">python scripts/09_compare_auroc_e2.py</text><g class="ty8"><rect x="131" y="316" width="423.6" height="28" fill="#0a121e"/><rect class="caret" x="132" y="319" width="10" height="22" rx="2" fill="#7fb8ff"/></g></g>
+  </g></g>
+  <text x="94" y="398" class="sans" font-size="16" font-weight="400" fill="#8291a8" text-anchor="start">Transformer masked autoencoder · 10.0M parameters · PyTorch</text>
+  <text x="94" y="422" class="sans" font-size="16" font-weight="400" fill="#8291a8" text-anchor="start">110 able-bodied adults for training · 17 held out · 50 stroke survivors</text>
+  <g class="s0">
+  <text x="724" y="62" class="sans" font-size="13" font-weight="700" fill="#ff8a65" text-anchor="start" letter-spacing="2">1 · MASK A JOINT, PREDICT IT</text><text x="724" y="88" class="sans" font-size="21" font-weight="600" fill="#dce7f5" text-anchor="start">Which joint does the model not expect?</text>
+  <line x1="736" y1="351" x2="852" y2="351" stroke="#26364f" stroke-width="2"/>
+  <g class="bob"><g class="thigh far" style="transform-origin:788px 238px"><line x1="788" y1="238" x2="788" y2="294" stroke="#4f6c95" stroke-width="7" stroke-linecap="round"/><g class="shank far" style="transform-origin:788px 294px"><line x1="788" y1="294" x2="788" y2="348" stroke="#4f6c95" stroke-width="6" stroke-linecap="round"/><line x1="788" y1="348" x2="802" y2="348" stroke="#4f6c95" stroke-width="5" stroke-linecap="round"/></g><circle cx="788" cy="294" r="5" fill="#4f6c95"/></g><g class="uarm far" style="transform-origin:788px 176px"><line x1="788" y1="176" x2="788" y2="214" stroke="#4f6c95" stroke-width="5" stroke-linecap="round"/><g class="farm far" style="transform-origin:788px 214px"><line x1="788" y1="214" x2="788" y2="248" stroke="#4f6c95" stroke-width="4.5" stroke-linecap="round"/></g></g><line x1="788" y1="238" x2="792" y2="168" stroke="#7fb8ff" stroke-width="7" stroke-linecap="round"/><circle cx="794" cy="150" r="13" fill="#7fb8ff"/><g class="thigh" style="transform-origin:788px 238px"><line x1="788" y1="238" x2="788" y2="294" stroke="#7fb8ff" stroke-width="7" stroke-linecap="round"/><g class="shank" style="transform-origin:788px 294px"><line x1="788" y1="294" x2="788" y2="348" stroke="#7fb8ff" stroke-width="6" stroke-linecap="round"/><line x1="788" y1="348" x2="802" y2="348" stroke="#7fb8ff" stroke-width="5" stroke-linecap="round"/></g><circle cx="788" cy="294" r="5" fill="#7fb8ff"/><circle class="k10" cx="788" cy="294" r="8" fill="#ff8a65"/></g><g class="uarm" style="transform-origin:788px 176px"><line x1="788" y1="176" x2="788" y2="214" stroke="#7fb8ff" stroke-width="5" stroke-linecap="round"/><g class="farm" style="transform-origin:788px 214px"><line x1="788" y1="214" x2="788" y2="248" stroke="#7fb8ff" stroke-width="4.5" stroke-linecap="round"/></g></g></g>
+  <g class="k10"><text x="806" y="298" class="sans" font-size="13" font-weight="700" fill="#ff8a65" text-anchor="start">knee</text></g>
+  <text x="948" y="116" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="start">7 frames per window</text>
+  <text x="1112" y="116" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="start">score</text>
+  <text x="936" y="141" class="sans" font-size="13" font-weight="400" fill="#c8d6ea" text-anchor="end">neck</text>
+  <rect x="948" y="128" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.25"/>
+  <rect x="969" y="128" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.33"/>
+  <rect x="990" y="128" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.41"/>
+  <rect x="1011" y="128" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.49"/>
+  <rect x="1032" y="128" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.57"/>
+  <rect x="1053" y="128" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.65"/>
+  <rect x="1074" y="128" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.73"/>
+  <g class="k11"><rect x="945" y="125" width="149" height="23" rx="5" fill="#111d31" stroke="#9cc3ff" stroke-dasharray="4 3"/><text x="1019.5" y="141" class="mono" font-size="12" font-weight="400" fill="#9cc3ff" text-anchor="middle">withheld</text></g>
+  <rect x="1112" y="131" width="78" height="11" rx="3" fill="#1b2a42"/>
+  <rect class="g12" x="1112" y="131" width="23.4" height="11" rx="3" fill="#7fb8ff"/>
+  <text x="936" y="171" class="sans" font-size="13" font-weight="400" fill="#c8d6ea" text-anchor="end">pelvis</text>
+  <rect x="948" y="158" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.25"/>
+  <rect x="969" y="158" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.33"/>
+  <rect x="990" y="158" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.41"/>
+  <rect x="1011" y="158" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.49"/>
+  <rect x="1032" y="158" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.57"/>
+  <rect x="1053" y="158" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.65"/>
+  <rect x="1074" y="158" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.73"/>
+  <g class="k13"><rect x="945" y="155" width="149" height="23" rx="5" fill="#111d31" stroke="#9cc3ff" stroke-dasharray="4 3"/><text x="1019.5" y="171" class="mono" font-size="12" font-weight="400" fill="#9cc3ff" text-anchor="middle">withheld</text></g>
+  <rect x="1112" y="161" width="78" height="11" rx="3" fill="#1b2a42"/>
+  <rect class="g14" x="1112" y="161" width="28.1" height="11" rx="3" fill="#7fb8ff"/>
+  <text x="936" y="201" class="sans" font-size="13" font-weight="400" fill="#c8d6ea" text-anchor="end">L hip</text>
+  <rect x="948" y="188" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.25"/>
+  <rect x="969" y="188" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.33"/>
+  <rect x="990" y="188" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.41"/>
+  <rect x="1011" y="188" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.49"/>
+  <rect x="1032" y="188" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.57"/>
+  <rect x="1053" y="188" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.65"/>
+  <rect x="1074" y="188" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.73"/>
+  <g class="k15"><rect x="945" y="185" width="149" height="23" rx="5" fill="#111d31" stroke="#9cc3ff" stroke-dasharray="4 3"/><text x="1019.5" y="201" class="mono" font-size="12" font-weight="400" fill="#9cc3ff" text-anchor="middle">withheld</text></g>
+  <rect x="1112" y="191" width="78" height="11" rx="3" fill="#1b2a42"/>
+  <rect class="g16" x="1112" y="191" width="35.9" height="11" rx="3" fill="#7fb8ff"/>
+  <text x="936" y="231" class="sans" font-size="13" font-weight="400" fill="#c8d6ea" text-anchor="end">R hip</text>
+  <rect x="948" y="218" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.25"/>
+  <rect x="969" y="218" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.33"/>
+  <rect x="990" y="218" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.41"/>
+  <rect x="1011" y="218" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.49"/>
+  <rect x="1032" y="218" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.57"/>
+  <rect x="1053" y="218" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.65"/>
+  <rect x="1074" y="218" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.73"/>
+  <g class="k17"><rect x="945" y="215" width="149" height="23" rx="5" fill="#111d31" stroke="#9cc3ff" stroke-dasharray="4 3"/><text x="1019.5" y="231" class="mono" font-size="12" font-weight="400" fill="#9cc3ff" text-anchor="middle">withheld</text></g>
+  <rect x="1112" y="221" width="78" height="11" rx="3" fill="#1b2a42"/>
+  <rect class="g18" x="1112" y="221" width="31.2" height="11" rx="3" fill="#7fb8ff"/>
+  <text x="936" y="261" class="sans" font-size="13" font-weight="400" fill="#c8d6ea" text-anchor="end">L knee</text>
+  <rect x="948" y="248" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.25"/>
+  <rect x="969" y="248" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.33"/>
+  <rect x="990" y="248" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.41"/>
+  <rect x="1011" y="248" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.49"/>
+  <rect x="1032" y="248" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.57"/>
+  <rect x="1053" y="248" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.65"/>
+  <rect x="1074" y="248" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.73"/>
+  <g class="k19"><rect x="945" y="245" width="149" height="23" rx="5" fill="#111d31" stroke="#9cc3ff" stroke-dasharray="4 3"/><text x="1019.5" y="261" class="mono" font-size="12" font-weight="400" fill="#9cc3ff" text-anchor="middle">withheld</text></g>
+  <rect x="1112" y="251" width="78" height="11" rx="3" fill="#1b2a42"/>
+  <rect class="g20" x="1112" y="251" width="68.6" height="11" rx="3" fill="#ff8a65"/>
+  <text x="936" y="291" class="sans" font-size="13" font-weight="400" fill="#c8d6ea" text-anchor="end">R knee</text>
+  <rect x="948" y="278" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.25"/>
+  <rect x="969" y="278" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.33"/>
+  <rect x="990" y="278" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.41"/>
+  <rect x="1011" y="278" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.49"/>
+  <rect x="1032" y="278" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.57"/>
+  <rect x="1053" y="278" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.65"/>
+  <rect x="1074" y="278" width="17" height="17" rx="3" fill="#7fb8ff" fill-opacity="0.73"/>
+  <g class="k21"><rect x="945" y="275" width="149" height="23" rx="5" fill="#111d31" stroke="#9cc3ff" stroke-dasharray="4 3"/><text x="1019.5" y="291" class="mono" font-size="12" font-weight="400" fill="#9cc3ff" text-anchor="middle">withheld</text></g>
+  <rect x="1112" y="281" width="78" height="11" rx="3" fill="#1b2a42"/>
+  <rect class="g22" x="1112" y="281" width="40.6" height="11" rx="3" fill="#7fb8ff"/>
+  <line x1="1160.4" y1="124" x2="1160.4" y2="300" stroke="#edf2f9" stroke-opacity=".55" stroke-dasharray="3 3"/>
+  <text x="1160.36" y="316" class="mono" font-size="11" font-weight="400" fill="#8291a8" text-anchor="middle">healthy noise floor</text>
+  <g class="k10"><text x="1198" y="261" class="sans" font-size="13" font-weight="700" fill="#ff8a65" text-anchor="start">flag</text></g>
+  <text x="724" y="404" class="sans" font-size="15" font-weight="400" fill="#c8d6ea" text-anchor="start">Each joint is hidden in turn and predicted from the others.</text>
+  <text x="724" y="426" class="sans" font-size="15" font-weight="400" fill="#c8d6ea" text-anchor="start">A joint is flagged when its error exceeds the healthy noise floor.</text>
+  </g>
+  <g class="s1">
+  <text x="724" y="62" class="sans" font-size="13" font-weight="700" fill="#ff8a65" text-anchor="start" letter-spacing="2">2 · RECONSTRUCT A NORMATIVE TWIN</text><text x="724" y="88" class="sans" font-size="21" font-weight="600" fill="#dce7f5" text-anchor="start">Flagged joints are rebuilt from the rest</text>
+  <line x1="780" y1="340.0" x2="1210" y2="340.0" stroke="#26364f"/>
+  <text x="770" y="344.0" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="end">0°</text>
+  <line x1="780" y1="282.9" x2="1210" y2="282.9" stroke="#26364f"/>
+  <text x="770" y="286.85714285714283" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="end">20°</text>
+  <line x1="780" y1="225.7" x2="1210" y2="225.7" stroke="#26364f"/>
+  <text x="770" y="229.71428571428572" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="end">40°</text>
+  <line x1="780" y1="168.6" x2="1210" y2="168.6" stroke="#26364f"/>
+  <text x="770" y="172.57142857142858" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="end">60°</text>
+  <text x="780.0" y="360" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">0%</text>
+  <text x="995.0" y="360" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">50%</text>
+  <text x="1210.0" y="360" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">100%</text>
+  <text x="995.0" y="380" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">gait cycle, knee flexion</text>
+  <g class="k24"><path d="M 780.0,307.4 L 788.6,303.7 L 797.2,298.1 L 805.8,290.7 L 814.4,282.1 L 823.0,273.9 L 831.6,267.9 L 840.2,265.7 L 848.8,267.9 L 857.4,273.9 L 866.0,282.1 L 874.6,290.7 L 883.2,298.1 L 891.8,303.7 L 900.4,307.4 L 909.0,309.5 L 917.6,310.6 L 926.2,311.1 L 934.8,311.3 L 943.4,311.3 L 952.0,311.3 L 960.6,311.1 L 969.2,310.7 L 977.8,310.0 L 986.4,308.5 L 995.0,305.9 L 1003.6,301.5 L 1012.2,294.6 L 1020.8,284.4 L 1029.4,270.4 L 1038.0,252.6 L 1046.6,231.5 L 1055.2,208.8 L 1063.8,186.8 L 1072.4,168.3 L 1081.0,155.8 L 1089.6,151.4 L 1098.2,155.8 L 1106.8,168.3 L 1115.4,186.8 L 1124.0,208.8 L 1132.6,231.5 L 1141.2,252.6 L 1149.8,270.4 L 1158.4,284.4 L 1167.0,294.6 L 1175.6,301.5 L 1184.2,305.9 L 1192.8,308.5 L 1201.4,310.0 L 1210.0,310.7 L 1210.0,340.0 L 1201.4,340.0 L 1192.8,340.0 L 1184.2,340.0 L 1175.6,335.8 L 1167.0,328.9 L 1158.4,318.7 L 1149.8,304.7 L 1141.2,286.9 L 1132.6,265.8 L 1124.0,243.1 L 1115.4,221.1 L 1106.8,202.5 L 1098.2,190.1 L 1089.6,185.7 L 1081.0,190.1 L 1072.4,202.5 L 1063.8,221.1 L 1055.2,243.1 L 1046.6,265.8 L 1038.0,286.9 L 1029.4,304.7 L 1020.8,318.7 L 1012.2,328.9 L 1003.6,335.8 L 995.0,340.0 L 986.4,340.0 L 977.8,340.0 L 969.2,340.0 L 960.6,340.0 L 952.0,340.0 L 943.4,340.0 L 934.8,340.0 L 926.2,340.0 L 917.6,340.0 L 909.0,340.0 L 900.4,340.0 L 891.8,338.0 L 883.2,332.4 L 874.6,325.0 L 866.0,316.4 L 857.4,308.2 L 848.8,302.2 L 840.2,300.0 L 831.6,302.2 L 823.0,308.2 L 814.4,316.4 L 805.8,325.0 L 797.2,332.4 L 788.6,338.0 L 780.0,340.0 Z" fill="#7fb8ff" fill-opacity=".16"/><text x="883.2" y="251.42857142857144" class="mono" font-size="12" font-weight="400" fill="#7fb8ff" text-anchor="start">normative range</text></g>
+  <path class="d25" pathLength="1" d="M 780.0,324.5 L 788.6,320.8 L 797.2,315.3 L 805.8,307.8 L 814.4,299.3 L 823.0,291.1 L 831.6,285.1 L 840.2,282.9 L 848.8,285.1 L 857.4,291.1 L 866.0,299.3 L 874.6,307.8 L 883.2,315.3 L 891.8,320.8 L 900.4,324.5 L 909.0,326.6 L 917.6,327.7 L 926.2,328.2 L 934.8,328.4 L 943.4,328.5 L 952.0,328.5 L 960.6,328.4 L 969.2,328.2 L 977.8,327.8 L 986.4,327.0 L 995.0,325.6 L 1003.6,323.2 L 1012.2,319.5 L 1020.8,314.1 L 1029.4,306.6 L 1038.0,297.0 L 1046.6,285.8 L 1055.2,273.6 L 1063.8,261.8 L 1072.4,251.9 L 1081.0,245.2 L 1089.6,242.9 L 1098.2,245.2 L 1106.8,251.9 L 1115.4,261.8 L 1124.0,273.6 L 1132.6,285.8 L 1141.2,297.0 L 1149.8,306.6 L 1158.4,314.1 L 1167.0,319.5 L 1175.6,323.2 L 1184.2,325.6 L 1192.8,327.0 L 1201.4,327.8 L 1210.0,328.2" fill="none" stroke="#ff8a65" stroke-width="3.5" stroke-linecap="round"/>
+  <path class="d26" pathLength="1" d="M 780.0,324.5 L 788.6,320.8 L 797.2,315.3 L 805.8,307.8 L 814.4,299.3 L 823.0,291.1 L 831.6,285.1 L 840.2,282.9 L 848.8,285.1 L 857.4,291.1 L 866.0,299.3 L 874.6,307.8 L 883.2,315.3 L 891.8,320.8 L 900.4,324.5 L 909.0,326.6 L 917.6,327.7 L 926.2,328.2 L 934.8,328.4 L 943.4,328.5 L 952.0,328.5 L 960.6,328.3 L 969.2,328.0 L 977.8,327.4 L 986.4,326.2 L 995.0,324.0 L 1003.6,320.4 L 1012.2,314.7 L 1020.8,306.4 L 1029.4,294.9 L 1038.0,280.2 L 1046.6,262.9 L 1055.2,244.3 L 1063.8,226.2 L 1072.4,211.0 L 1081.0,200.7 L 1089.6,197.1 L 1098.2,200.7 L 1106.8,211.0 L 1115.4,226.2 L 1124.0,244.3 L 1132.6,262.9 L 1141.2,280.2 L 1149.8,294.9 L 1158.4,306.4 L 1167.0,314.7 L 1175.6,320.4 L 1184.2,324.0 L 1192.8,326.2 L 1201.4,327.4 L 1210.0,328.0" fill="none" stroke="#edf2f9" stroke-width="3" stroke-dasharray="1" stroke-linecap="round"/>
+  <g class="k27"><rect x="1030" y="128" width="14" height="4" rx="2" fill="#ff8a65"/><text x="1050" y="134" class="mono" font-size="12" font-weight="400" fill="#ff8a65" text-anchor="start">paretic knee</text></g>
+  <g class="k28"><rect x="1030" y="146" width="14" height="4" rx="2" fill="#edf2f9"/><text x="1050" y="152" class="mono" font-size="12" font-weight="400" fill="#edf2f9" text-anchor="start">reconstructed</text></g>
+  <g class="k29"><text x="724" y="404" class="sans" font-size="15" font-weight="400" fill="#c8d6ea" text-anchor="start">50 stroke survivors: reconstruction moved paretic hip and knee</text><text x="724" y="426" class="sans" font-size="15" font-weight="400" fill="#c8d6ea" text-anchor="start">towards the normative mean in 8 of 8 comparisons (P &lt; 0.05 in 6).</text></g>
+  <text x="1228" y="380" class="mono" font-size="11" font-weight="400" fill="#8291a8" text-anchor="end">illustrative curves</text>
+  </g>
+  <g class="s2">
+  <text x="724" y="62" class="sans" font-size="13" font-weight="700" fill="#ff8a65" text-anchor="start" letter-spacing="2">3 · HEALTHY ADULTS HELD OUT</text><text x="724" y="88" class="sans" font-size="21" font-weight="600" fill="#dce7f5" text-anchor="start">Angles kept, yet many trials flagged</text>
+  <rect x="785.0" y="124" width="150.0" height="196" fill="#8fd694" fill-opacity=".08"/>
+  <line x1="785.0" y1="124" x2="785.0" y2="320" stroke="#8fd694" stroke-opacity="0.6" stroke-dasharray="4 3"/>
+  <text x="785.0" y="338" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">-1.5°</text>
+  <line x1="860.0" y1="124" x2="860.0" y2="320" stroke="#26364f" stroke-opacity="1" stroke-dasharray="0"/>
+  <text x="860.0" y="338" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">0</text>
+  <line x1="935.0" y1="124" x2="935.0" y2="320" stroke="#8fd694" stroke-opacity="0.6" stroke-dasharray="4 3"/>
+  <text x="935.0" y="338" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">+1.5°</text>
+  <text x="860.0" y="356" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">change in RMSE, 90% CI</text>
+  <text x="724" y="140" class="mono" font-size="12" font-weight="400" fill="#c8d6ea" text-anchor="start">pelvis flexion</text>
+  <line class="g31" x1="859.5" y1="154" x2="864.0" y2="154" stroke="#7fb8ff" stroke-width="2.5" stroke-linecap="round"/>
+  <circle class="p32" cx="861.5" cy="154" r="4.5" fill="#7fb8ff"/>
+  <line class="g33" x1="859.0" y1="166" x2="862.0" y2="166" stroke="#b6c9e6" stroke-width="2.5" stroke-linecap="round"/>
+  <circle class="p34" cx="860.5" cy="166" r="4.5" fill="#b6c9e6"/>
+  <text x="724" y="190" class="mono" font-size="12" font-weight="400" fill="#c8d6ea" text-anchor="start">R hip ab/adduction</text>
+  <line class="g35" x1="861.0" y1="204" x2="863.0" y2="204" stroke="#7fb8ff" stroke-width="2.5" stroke-linecap="round"/>
+  <circle class="p36" cx="862.0" cy="204" r="4.5" fill="#7fb8ff"/>
+  <line class="g37" x1="860.0" y1="216" x2="860.5" y2="216" stroke="#b6c9e6" stroke-width="2.5" stroke-linecap="round"/>
+  <circle class="p38" cx="860.0" cy="216" r="4.5" fill="#b6c9e6"/>
+  <text x="724" y="240" class="mono" font-size="12" font-weight="400" fill="#c8d6ea" text-anchor="start">R hip flexion</text>
+  <line class="g39" x1="860.0" y1="254" x2="864.0" y2="254" stroke="#7fb8ff" stroke-width="2.5" stroke-linecap="round"/>
+  <circle class="p40" cx="861.5" cy="254" r="4.5" fill="#7fb8ff"/>
+  <line class="g41" x1="858.5" y1="266" x2="861.5" y2="266" stroke="#b6c9e6" stroke-width="2.5" stroke-linecap="round"/>
+  <circle class="p42" cx="860.0" cy="266" r="4.5" fill="#b6c9e6"/>
+  <text x="724" y="290" class="mono" font-size="12" font-weight="400" fill="#c8d6ea" text-anchor="start">R knee flexion</text>
+  <line class="g43" x1="804.0" y1="304" x2="854.0" y2="304" stroke="#7fb8ff" stroke-width="2.5" stroke-linecap="round"/>
+  <circle class="p44" cx="831.5" cy="304" r="4.5" fill="#7fb8ff"/>
+  <line class="g45" x1="859.5" y1="316" x2="860.0" y2="316" stroke="#b6c9e6" stroke-width="2.5" stroke-linecap="round"/>
+  <circle class="p46" cx="859.5" cy="316" r="4.5" fill="#b6c9e6"/>
+  <text x="724" y="110" class="sans" font-size="13" font-weight="700" fill="#8fd694" text-anchor="start">within ±1.5°: 4 of 4, both runs</text>
+  <text x="1010" y="128" class="mono" font-size="12" font-weight="400" fill="#c8d6ea" text-anchor="start">run 1: 21 of 48 trials flagged (44%)</text>
+  <rect x="1010" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1027" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1044" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1061" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1078" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1095" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1112" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1129" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1146" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1163" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1180" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1197" y="140" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1010" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1027" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1044" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1061" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1078" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1095" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1112" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1129" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1146" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1163" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1180" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1197" y="157" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1010" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1027" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1044" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1061" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1078" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1095" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1112" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1129" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1146" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1163" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1180" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1197" y="174" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1010" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1027" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1044" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1061" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1078" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1095" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1112" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1129" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1146" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1163" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1180" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1197" y="191" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect class="p47" x="1010" y="140" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p48" x="1061" y="140" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p49" x="1078" y="140" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p50" x="1129" y="140" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p51" x="1146" y="140" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p52" x="1010" y="157" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p53" x="1027" y="157" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p54" x="1078" y="157" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p55" x="1095" y="157" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p56" x="1146" y="157" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p57" x="1163" y="157" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p58" x="1027" y="174" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p59" x="1044" y="174" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p60" x="1095" y="174" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p61" x="1112" y="174" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p62" x="1180" y="174" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p63" x="1044" y="191" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p64" x="1061" y="191" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p65" x="1112" y="191" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p66" x="1129" y="191" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p67" x="1197" y="191" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <text x="1010" y="266" class="mono" font-size="12" font-weight="400" fill="#c8d6ea" text-anchor="start">run 2: 15 of 48 trials flagged (31%)</text>
+  <rect x="1010" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1027" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1044" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1061" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1078" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1095" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1112" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1129" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1146" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1163" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1180" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1197" y="278" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1010" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1027" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1044" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1061" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1078" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1095" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1112" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1129" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1146" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1163" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1180" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1197" y="295" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1010" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1027" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1044" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1061" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1078" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1095" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1112" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1129" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1146" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1163" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1180" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1197" y="312" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1010" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1027" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1044" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1061" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1078" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1095" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1112" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1129" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1146" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1163" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1180" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect x="1197" y="329" width="13" height="13" rx="2.5" fill="#22334f"/>
+  <rect class="p68" x="1010" y="278" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p69" x="1027" y="278" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p70" x="1095" y="278" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p71" x="1163" y="278" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p72" x="1027" y="295" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p73" x="1044" y="295" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p74" x="1112" y="295" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p75" x="1180" y="295" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p76" x="1044" y="312" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p77" x="1061" y="312" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p78" x="1129" y="312" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p79" x="1197" y="312" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p80" x="1061" y="329" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p81" x="1078" y="329" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <rect class="p82" x="1146" y="329" width="13" height="13" rx="2.5" fill="#ff8a65"/>
+  <g class="k83"><text x="724" y="404" class="sans" font-size="15" font-weight="400" fill="#c8d6ea" text-anchor="start">17 held-out adults: reconstruction kept the reported angles, but</text><text x="724" y="426" class="sans" font-size="15" font-weight="400" fill="#c8d6ea" text-anchor="start">a third or more of trials still had a flagged joint.</text></g>
+  </g>
+  <g class="s3">
+  <text x="724" y="62" class="sans" font-size="13" font-weight="700" fill="#ff8a65" text-anchor="start" letter-spacing="2">4 · STROKE: WHICH SIDE IS PARETIC?</text><text x="724" y="88" class="sans" font-size="21" font-weight="600" fill="#dce7f5" text-anchor="start">A one-line clinical rule does better</text>
+  <line x1="930.0" y1="124" x2="930.0" y2="336" stroke="#26364f"/>
+  <text x="930.0" y="354" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">0.2</text>
+  <line x1="1000.0" y1="124" x2="1000.0" y2="336" stroke="#26364f"/>
+  <text x="1000.0" y="354" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">0.4</text>
+  <line x1="1070.0" y1="124" x2="1070.0" y2="336" stroke="#26364f"/>
+  <text x="1070.0" y="354" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">0.6</text>
+  <line x1="1140.0" y1="124" x2="1140.0" y2="336" stroke="#26364f"/>
+  <text x="1140.0" y="354" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">0.8</text>
+  <line x1="1210.0" y1="124" x2="1210.0" y2="336" stroke="#26364f"/>
+  <text x="1210.0" y="354" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">1.0</text>
+  <line x1="1035.0" y1="124" x2="1035.0" y2="336" stroke="#edf2f9" stroke-opacity=".5" stroke-dasharray="4 3"/>
+  <text x="1035.0" y="118" class="mono" font-size="11" font-weight="400" fill="#8291a8" text-anchor="middle">chance</text>
+  <text x="1070.0" y="372" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="middle">AUROC, paretic side, 95% CI</text>
+  <text x="724" y="165" class="sans" font-size="14" font-weight="400" fill="#c8d6ea" text-anchor="start">model, run 1</text>
+  <line class="g85" x1="993.0" y1="160" x2="1105.0" y2="160" stroke="#7fb8ff" stroke-width="3" stroke-linecap="round"/>
+  <g class="p86"><circle cx="1049.0" cy="160" r="7" fill="#7fb8ff"/><text x="1049.0" y="147" class="mono" font-size="13" font-weight="700" fill="#7fb8ff" text-anchor="middle">0.54</text></g>
+  <text x="724" y="210" class="sans" font-size="14" font-weight="400" fill="#c8d6ea" text-anchor="start">model, run 2</text>
+  <line class="g87" x1="1021.0" y1="205" x2="1133.0" y2="205" stroke="#7fb8ff" stroke-width="3" stroke-linecap="round"/>
+  <g class="p88"><circle cx="1077.0" cy="205" r="7" fill="#7fb8ff"/><text x="1077.0" y="192" class="mono" font-size="13" font-weight="700" fill="#7fb8ff" text-anchor="middle">0.62</text></g>
+  <text x="724" y="255" class="sans" font-size="14" font-weight="700" fill="#8fd694" text-anchor="start">knee flexion rule</text>
+  <line class="g89" x1="1105.0" y1="250" x2="1192.5" y2="250" stroke="#8fd694" stroke-width="3" stroke-linecap="round"/>
+  <g class="p90"><circle cx="1154.0" cy="250" r="7" fill="#8fd694"/><text x="1154.0" y="237" class="mono" font-size="13" font-weight="700" fill="#8fd694" text-anchor="middle">0.84</text></g>
+  <text x="724" y="268" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="start">lower peak in swing</text>
+  <g class="k91"><text x="724" y="305" class="sans" font-size="14" font-weight="400" fill="#c8d6ea" text-anchor="start">E3, other settings</text><text x="724" y="322" class="mono" font-size="12" font-weight="400" fill="#8291a8" text-anchor="start">mean of two runs</text></g>
+  <rect class="p92" x="963.0" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p93" x="980.5" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p94" x="1001.5" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p95" x="1020.4" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p96" x="1022.5" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p97" x="1023.9" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p98" x="1029.5" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p99" x="1043.2" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p100" x="1051.5" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p101" x="1053.3" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <rect class="p102" x="1089.0" y="300" width="4" height="22" rx="2" fill="#9cc3ff" fill-opacity=".85"/>
+  <g class="k103"><text x="724" y="404" class="sans" font-size="15" font-weight="400" fill="#c8d6ea" text-anchor="start">No setting averaged above 0.66: training size, age range of the</text><text x="724" y="426" class="sans" font-size="15" font-weight="400" fill="#c8d6ea" text-anchor="start">reference, window length (7, 15, 31 frames), ankles, peak statistic.</text></g>
+  </g>
+</svg>
