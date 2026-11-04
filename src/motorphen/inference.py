@@ -14,13 +14,18 @@ LONG_AXIS = torch.tensor([0.0, 0.0, 1.0])         # child segment long axis in t
 
 
 @torch.no_grad()
-def predict_last(model, seq, hide=(), T=None, batch=1024):
+def predict_last(model, seq, hide=(), T=None, batch=None):
     """Last-frame predictions for every window of a trial.
 
     seq: (N, J, 3) tensor of angles in radians on the model's device.
     hide: joint indices hidden from the encoder at every frame.
-    Returns (N - T + 1, J, 3) predicted angles."""
+    Returns (N - T + 1, J, 3) predicted angles.
+    batch: windows per forward pass; by default 1024 at 7 frames, scaled down
+    with the cube of the window length (attention memory grows with its square,
+    and longer windows leave less room under the MPS cap)."""
     T = model.T if T is None else T
+    if batch is None:
+        batch = max(8, int(1024 * (7 / T) ** 3))
     N, J, _ = seq.shape
     W = N - T + 1
     out = []
