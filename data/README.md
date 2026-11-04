@@ -16,7 +16,9 @@ Van Criekinge T, Saeys W, Truijen S, Vereeck L, Sloot LH, Hallemans A. A
 full-body motion capture gait dataset of 138 able-bodied adults across the life
 span and 50 stroke survivors. Sci Data 2023;10:852. doi:10.1038/s41597-023-02767-y
 
-- Figshare collection: doi:10.6084/m9.figshare.c.6503791.v1 (CC0)
+- Figshare collection: doi:10.6084/m9.figshare.c.6503791.v1. Every file in the
+  collection is released under CC0; the DataCite record of the collection lists
+  CC BY 4.0, so the dataset is cited in any work that uses it (checked 2026-11-04).
 - Used: the two C3D archives (138_HealthyPiG.zip, 50_StrokePiG.zip), two
   description spreadsheets, and the two post-processed Excel files, which hold
   the subject characteristics (age, sex, lesion side, FAC, POMA, TIS) that the
