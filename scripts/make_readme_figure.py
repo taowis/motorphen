@@ -102,7 +102,7 @@ css.append(".caret{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opa
 
 body.append(f'<g class="rise">{text(92, 190, "MotorPhen", 104, "#f1f5fb", 800, extra=" letter-spacing=\"-3\"")}</g>')
 body.append('<g class="rise d1">'
-            + text(94, 236, "A normative gait model that names the joint,", 24, SUB, 600)
+            + text(94, 236, "A Transformer model that names the joint,", 24, SUB, 600)
             + text(94, 267, "tested where the impaired side is known.", 24, SUB, 600) + "</g>")
 
 commands = ["python scripts/02_train_e1.py --seed 1",

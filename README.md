@@ -1,14 +1,15 @@
 # MotorPhen
 
 <p align="center">
-  <img src="docs/images/motorphen-hero.svg" alt="MotorPhen. Four scenes: each of six joints is withheld in turn and predicted from the others, and a knee above the healthy noise floor is flagged; a paretic knee curve is reconstructed towards the normative range; in 17 held-out healthy adults all four reported angles stay within 1.5 degrees while 21 and 15 of 48 trials are flagged; the paretic side of 50 stroke survivors is found with AUROC 0.54 and 0.62 by the model and 0.84 by a knee flexion rule." width="100%">
+  <img src="docs/images/motorphen-hero.svg" alt="MotorPhen, a Transformer model that names the joint. Four scenes: each of six joints is withheld in turn and predicted from the others, and a knee above the healthy noise floor is flagged; a paretic knee curve is reconstructed towards the normative range; in 17 held-out healthy adults all four reported angles stay within 1.5 degrees while 21 and 15 of 48 trials are flagged; the paretic side of 50 stroke survivors is found with AUROC 0.54 and 0.62 by the model and 0.84 by a knee flexion rule." width="100%">
 </p>
 
-Motor phenotyping from markerless gait recordings. The aim is a small, open
-implementation of a normative gait model: train on healthy walking, score each
-joint by how far it departs from what the model expects, and reconstruct a
-subject-specific normative trajectory. Joint-level outputs are meant to be
-compared across genetically defined patient groups.
+MotorPhen is a Transformer model for joint-level motor phenotyping from gait
+recordings. The aim is a small, open implementation of a normative gait model:
+train on healthy walking, score each joint by how far it departs from what the
+model expects, and reconstruct a subject-specific normative trajectory.
+Joint-level outputs are meant to be compared across genetically defined patient
+groups.
 
 The model design follows GenGait, the masked autoencoder approach described by
 Motta et al. [1]. Their code and data are not public; this is an independent
